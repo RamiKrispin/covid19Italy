@@ -56,6 +56,8 @@ if(identical(italy_current, italy_total)){
 
   usethis::use_data(italy_total, overwrite = TRUE)
 
+  write.csv(italy_total, "csv/italy_total.csv", row.names = FALSE)
+
   system(command = "R CMD INSTALL --no-multiarch --with-keep.source /Users/ramikrispin/R/packages/covid19italy")
 
   .rs.restartR()
@@ -138,6 +140,10 @@ if(identical(italy_pro_current, italy_province)){
 
   system(command = "R CMD INSTALL --no-multiarch --with-keep.source /Users/ramikrispin/R/packages/covid19italy")
 
+
+  write.csv(italy_province, "csv/italy_province.csv", row.names = FALSE)
+
+
   .rs.restartR()
 
 
@@ -203,6 +209,8 @@ if(identical(italy_reg_current, italy_region)){
   # save and commit
 
   usethis::use_data(italy_region, overwrite = TRUE)
+
+  write.csv(italy_region, "csv/italy_region.csv", row.names = FALSE)
 
   system(command = "R CMD INSTALL --no-multiarch --with-keep.source /Users/ramikrispin/R/packages/covid19italy")
 
