@@ -216,8 +216,6 @@ if(identical(italy_reg_current, italy_region)){
 
   .rs.restartR()
 
-
-
 }
 
 
