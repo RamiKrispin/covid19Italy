@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Rami", "Krispin", email = "rami.krispin@gmail.com",
   role = c("aut", "cre"))
 Maintainer: Rami Krispin <rami.krispin@gmail.com>
-Description: Provides a daily summary of the Coronavirus (COVID-19) cases in Italy by country, region and province level. Data source: Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile <http://www.protezionecivile.it/>
+Description: Provides a daily summary of the Coronavirus (COVID-19) cases in Italy by country, region and province level. Data source: Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile <http://www.protezionecivile.it/>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
