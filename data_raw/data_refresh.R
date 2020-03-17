@@ -10,9 +10,7 @@
 `%>%` <- magrittr::`%>%`
 
 
-
 italy_current <- covid19italy::italy_total
-
 
 
 italy_total <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
@@ -88,7 +86,7 @@ df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-  dplyr::select(-date_temp) %>%
+  dplyr::select(-date_temp, -state) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
@@ -103,7 +101,7 @@ head(df1)
 head(df2)
 
 italy_province <- df1 %>% dplyr::left_join(df2,
-                                        by = c("date", "state",
+                                        by = c("date",
                                                "region_code", "region_name",
                                                "province_code", "province_name",
                                                "province_abb",
@@ -180,7 +178,7 @@ italy_region <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/mas
                     "new_currently_positive",
                     "recovered", "death", "total_positive_cases", "total_tests")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-  dplyr::select(-date_temp) %>%
+  dplyr::select(-date_temp, - state) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
