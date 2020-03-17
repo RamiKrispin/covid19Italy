@@ -34,11 +34,7 @@
 #'
 #' data(italy_total)
 #'
-#' require(dplyr)
-#'
-#' # Get the most recent day summary
-#' italy_total %>%
-#'   dplyr::filter(date == max(date))
+#' head(italy_total)
 #'
 
 "italy_total"

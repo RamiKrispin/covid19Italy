@@ -43,11 +43,7 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 data(italy_total)
 
-require(dplyr)
-
-# Get the most recent day summary
-italy_total \%>\%
-  dplyr::filter(date == max(date))
+head(italy_total)
 
 }
 \keyword{COVID19}
