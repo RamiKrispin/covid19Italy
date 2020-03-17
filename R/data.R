@@ -55,14 +55,10 @@
 #' @details The dataset contains the daily summary of the Coronavirus pandemic cases in Italy
 #' @examples
 #'
-#' data(italy_total)
+#' data(italy_region)
 #'
-#' require(dplyr)
-#'
-#' # Get the most recent day summary
-#' italy_total %>%
-#'   dplyr::filter(date == max(date))
+#' head(italy_region)
 #'
 
-"italy_total"
+"italy_region"
 
