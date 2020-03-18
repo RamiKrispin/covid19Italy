@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • covid19italy</title>
+<title>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Provinces Outbreak Dataset — italy_province • covid19italy</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Provinces Outbreak Dataset — italy_province" />
+
+<meta property="og:description" content="daily summary of the Coronavirus (COVID-19) pandemic cases in Italy's provinces" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -94,54 +97,83 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Provinces Outbreak Dataset</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RamiKrispin/covid19italy/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>italy_province.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>daily summary of the Coronavirus (COVID-19) pandemic cases in Italy's provinces</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>italy_province</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="italy_province.html">italy_province</a></code> </p>
-        </td>
-        <td><p>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Provinces Outbreak Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="italy_region.html">italy_region</a></code> </p>
-        </td>
-        <td><p>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Regions Outbreak Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="italy_total.html">italy_total</a></code> </p>
-        </td>
-        <td><p>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Outbreak Dataset</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <p>A data.frame object</p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile <a href='http://www.protezionecivile.it/'>website</a></p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The dataset contains the daily summary of the Coronavirus pandemic cases in Italy's regions. The data includes the following fields:</p>
+<p>- date - date of notification (Date class)</p>
+<p>- region_code - region code</p>
+<p>- region_name - region names</p>
+<p>- province_code - province code</p>
+<p>- province_name - province names</p>
+<p>- lat - latitude point</p>
+<p>- long - Longitude point</p>
+<p>- total_positive_cases - total positive cases</p>
+<p>- total_tests - number of tests performed</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>italy_province</span>)
+
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>italy_province</span>)</div><div class='output co'>#&gt;         date region_code region_name province_code
+#&gt; 1 2020-02-24          13     Abruzzo            69
+#&gt; 2 2020-02-24          13     Abruzzo            66
+#&gt; 3 2020-02-24          13     Abruzzo            68
+#&gt; 4 2020-02-24          13     Abruzzo            67
+#&gt; 5 2020-02-24          13     Abruzzo           979
+#&gt; 6 2020-02-24          17  Basilicata            77
+#&gt;                          province_name province_abb      lat     long
+#&gt; 1                               Chieti           CH 42.35103 14.16755
+#&gt; 2                             L'Aquila           AQ 42.35122 13.39844
+#&gt; 3                              Pescara           PE 42.46458 14.21365
+#&gt; 4                               Teramo           TE 42.65892 13.70440
+#&gt; 5 In fase di definizione/aggiornamento               0.00000  0.00000
+#&gt; 6                               Matera           MT 40.66751 16.59792
+#&gt;   total_cases new_cases
+#&gt; 1           0         0
+#&gt; 2           0         0
+#&gt; 3           0         0
+#&gt; 4           0         0
+#&gt; 5           0         0
+#&gt; 6           0         0</div><div class='input'>
+</div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
