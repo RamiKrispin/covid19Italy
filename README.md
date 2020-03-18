@@ -56,7 +56,7 @@ head(italy_total)
 #> 6 2020-02-29                        401            105                506              543                     1049                    228        50    29                 1128       18661
 ```
 
-### Positive cases by type
+### Plotting the active cases distribution
 
 ``` r
 library(plotly)
@@ -84,3 +84,29 @@ plot_ly(data = italy_total,
 ```
 
 <img src="man/figures/positive_dist.png" width="100%" />
+
+### Plotting the daily cases distribution
+
+``` r
+plot_ly(data = italy_total,
+        x = ~ date,
+        y = ~total_currently_positive, 
+        name = 'Active', 
+        fillcolor = '#1f77b4',
+        type = 'scatter',
+        mode = 'none', 
+        stackgroup = 'one') %>%
+  add_trace( y = ~ death, 
+             name = "Death",
+             fillcolor = '#E41317') %>%
+  add_trace(y = ~recovered, 
+            name = 'Recovered', 
+            fillcolor = 'forestgreen') %>%
+  layout(title = "Italy - Distribution of Covid19 Cases",
+         legend = list(x = 0.1, y = 0.9),
+         yaxis = list(title = "Number of Cases"),
+         xaxis = list(title = "Source: Italy Department of Civil Protection"))
+
+```
+
+<img src="man/figures/case_dist.png" width="100%" />
