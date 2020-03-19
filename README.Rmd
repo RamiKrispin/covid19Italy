@@ -112,3 +112,63 @@ plot_ly(data = italy_total,
 
 ```
 <img src="man/figures/case_dist.png" width="100%" />
+
+
+### Cases distribution by region
+
+``` r
+italy_region %>% 
+  filter(date == max(date)) %>% 
+  select(region_name, total_currently_positive, recovered, death, total_positive_cases) %>%
+  arrange(-total_positive_cases) %>%
+  mutate(region = factor(region_name, levels = region_name)) %>%
+  plot_ly(y = ~ region, 
+          x = ~ total_currently_positive, 
+          orientation = 'h',
+          text =  ~ total_currently_positive,
+          textposition = 'auto',
+          type = "bar", 
+          name = "Active",
+          marker = list(color = "#1f77b4")) %>%
+  add_trace(x = ~ recovered,
+            text =  ~ recovered,
+            textposition = 'auto',
+            name = "Recovered",
+            marker = list(color = "forestgreen")) %>%
+  add_trace(x = ~ death, 
+            text =  ~ death,
+            textposition = 'auto',
+            name = "Death",
+            marker = list(color = "red")) %>%
+  layout(title = "Cases Distribution by Region",
+         barmode = 'stack',
+         yaxis = list(title = "Region"),
+         xaxis = list(title = "Number of Cases"),
+         hovermode = "compare",
+         legend = list(x = 0.65, y = 0.9),
+         margin =  list(
+           l = 20,
+           r = 10,
+           b = 10,
+           t = 30,
+           pad = 2
+         ))
+
+```
+
+<img src="man/figures/region_bar_plot.png" width="100%" />
+
+### Cases distribution by province for Lombardia region
+
+```r
+italy_province %>% 
+  filter(date == max(date), region_name == "Lombardia") %>%
+  plot_ly(labels = ~province_name, values = ~total_cases, 
+                  textinfo="label+percent",
+                  type = 'pie') %>%
+  layout(title = "Lombardia - Cases Distribution by Province") %>% 
+  hide_legend()
+```
+
+
+<img src="man/figures/province_pie.png" width="100%" />
