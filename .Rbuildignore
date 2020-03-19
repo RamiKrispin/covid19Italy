@@ -6,3 +6,4 @@
 ^docs$
 ^README\.Rmd$
 ^.github$
+^CRAN-RELEASE$
