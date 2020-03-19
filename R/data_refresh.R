@@ -16,13 +16,13 @@ update_data <- function(){
   region_current <- covid19italy::italy_region
   province_current <- covid19italy::italy_province
 
-  total_git <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv",
+  total_git <- utils::read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv",
                         stringsAsFactors = FALSE)
 
-  region_git <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_region.csv",
+  region_git <- utils::read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_region.csv",
                          stringsAsFactors = FALSE)
 
-  province_git <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_province.csv")
+  province_git <- utils::read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_province.csv")
 
 
   total_git$date <- as.Date(total_git$date)
@@ -52,8 +52,23 @@ update_data <- function(){
     q <- base::tolower(base::readline("Updates are available on the covid19italy Dev version, do you want to update? n/Y"))
 
     if(q == "y" | q == "yes"){
+
+      base::tryCatch(
+        expr = {
       devtools::install_github("RamiKrispin/covid19Italy")
-      .rs.restartR()
+
+          base::message("The data was refresed, please restart your session to have the new data available")
+        },
+      error = function(e){
+        message('Caught an error!')
+        print(e)
+      },
+      warning = function(w){
+        message('Caught an warning!')
+        print(w)
+      }
+
+      )
     }
   } else {
     base::message("No updates are available")
