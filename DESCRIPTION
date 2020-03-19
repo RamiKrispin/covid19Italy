@@ -13,8 +13,6 @@ Depends:
   R (>= 3.0.2)
 Suggests:
     devtools,
-    DT,
-    knitr,
     plotly,
     rmarkdown,
     remotes,
