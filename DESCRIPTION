@@ -16,6 +16,7 @@ Imports:
 Suggests:
     devtools,
     plotly,
+    knitr,
     rmarkdown,
     remotes,
     testthat (>= 2.1.0),
