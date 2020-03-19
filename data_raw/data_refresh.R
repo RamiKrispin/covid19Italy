@@ -61,10 +61,6 @@ data_refresh <- function(){
 
     write.csv(italy_total, "csv/italy_total.csv", row.names = FALSE)
 
-    system(command = "R CMD INSTALL --no-multiarch --with-keep.source /Users/ramikrispin/R/packages/covid19italy")
-
-    .rs.restartR()
-
   }
 
 
