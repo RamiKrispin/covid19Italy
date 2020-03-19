@@ -39,7 +39,7 @@ if(identical(italy_current, italy_total)){
     stop("The number of columns in the updated data is not maching the one in the current version")
   }
 
-  if(nrow(italy_currnet) > nrow(italy_total)){
+  if(nrow(italy_current) > nrow(italy_total)){
     stop("The number of rows in the updated data is lower than the one in the current version")
   }
 
@@ -121,7 +121,7 @@ if(identical(italy_pro_current, italy_province)){
     stop("The number of columns in the updated data is not maching the one in the current version")
   }
 
-  if(nrow(italy_currnet) > nrow(italy_province)){
+  if(nrow(italy_current) > nrow(italy_province)){
     stop("The number of rows in the updated data is lower than the one in the current version")
   }
 
@@ -193,7 +193,7 @@ if(identical(italy_reg_current, italy_region)){
     stop("The number of columns in the updated data is not maching the one in the current version")
   }
 
-  if(nrow(italy_currnet) > nrow(italy_region)){
+  if(nrow(italy_current) > nrow(italy_region)){
     stop("The number of rows in the updated data is lower than the one in the current version")
   }
 
