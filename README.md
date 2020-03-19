@@ -23,6 +23,9 @@ package includes the following three datasets:
   - `italy_province` - daily summary of the outbreak on the province
     level
 
+Data source: [Italy Department of Civil
+Protection](http://www.protezionecivile.it/)
+
 ## Installation
 
 You can install the released version of covid19italy from

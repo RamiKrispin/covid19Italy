@@ -31,6 +31,9 @@ The covid19italy R package provides a tidy format dataset of the 2019 Novel Coro
 
 
 
+Data source: [Italy Department of Civil Protection](http://www.protezionecivile.it/)
+
+
 ## Installation
 
 You can install the released version of covid19italy from [CRAN](https://CRAN.R-project.org) with:
