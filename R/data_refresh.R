@@ -9,7 +9,7 @@
 #' data_update()
 #'
 #' }
-data_update <- function(){
+update_data <- function(){
   flag <- FALSE
 
   total_current <- covid19italy::italy_total

@@ -1,9 +1,11 @@
 #------------------------------------------------------------------
-# Pulling covid19 data for Italy total
+# Pulling covid19 data for Italy total, region, and province level
 # Source: Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile
 # Website: http://www.protezionecivile.it/
 # Github repo: https://github.com/pcm-dpc
 #------------------------------------------------------------------
+
+update_data <- function()
 
 # Loading the current version
 
