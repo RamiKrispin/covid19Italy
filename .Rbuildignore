@@ -5,3 +5,4 @@
 ^LICENSE\.md$
 ^docs$
 ^README\.Rmd$
+^.github$
