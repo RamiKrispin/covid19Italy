@@ -42,10 +42,22 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("RamiKrispin/covid19Italy")
 ```
 
-## Usage
+## Data refresh
+
+The **covid19italy** package dev version is been updated on a daily
+bases. The `update_data` function enables a simple refresh of the
+installed package datasets with the most updated version on Github:
 
 ``` r
 library(covid19italy)
+
+update_data()
+```
+
+## Usage
+
+``` r
+
 
 data(italy_total)
 

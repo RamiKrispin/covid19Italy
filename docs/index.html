@@ -45,6 +45,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -92,139 +95,147 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"covid19italy"</span>)</span></code></pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/remote-reexports">install_github</a></span>(<span class="st">"RamiKrispin/covid19Italy"</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"RamiKrispin/covid19Italy"</span>)</span></code></pre></div>
+</div>
+<div id="data-refresh" class="section level2">
+<h2 class="hasAnchor">
+<a href="#data-refresh" class="anchor"></a>Data refresh</h2>
+<p>The <strong>covid19italy</strong> package dev version is been updated on a daily bases. The <code>update_data</code> function enables a simple refresh of the installed package datasets with the most updated version on Github:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(covid19italy)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw"><a href="reference/update_data.html">update_data</a></span>()</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(covid19italy)</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(italy_total)</span>
-<span id="cb3-4"><a href="#cb3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(italy_total)</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;         date hospitalized_with_symptoms intensive_care total_hospitalized</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; 1 2020-02-24                        101             26                127</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; 2 2020-02-25                        114             35                150</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; 3 2020-02-26                        128             36                164</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; 4 2020-02-27                        248             56                304</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; 5 2020-02-28                        345             64                409</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; 6 2020-02-29                        401            105                506</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt;   home_confinement total_currently_positive new_currently_positive recovered</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; 1               94                      221                    221         1</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; 2              162                      311                     90         1</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; 3              221                      385                     74         3</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; 4              284                      588                    203        45</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; 5              412                      821                    233        46</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; 6              543                     1049                    228        50</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;   death total_positive_cases total_tests</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; 1     7                  229        4324</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; 2    10                  322        8623</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; 3    12                  400        9587</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; 4    17                  650       12014</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; 5    21                  888       15695</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; 6    29                 1128       18661</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(italy_total)</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(italy_total)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt;         date hospitalized_with_symptoms intensive_care total_hospitalized</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; 1 2020-02-24                        101             26                127</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt; 2 2020-02-25                        114             35                150</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#&gt; 3 2020-02-26                        128             36                164</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#&gt; 4 2020-02-27                        248             56                304</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt; 5 2020-02-28                        345             64                409</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; 6 2020-02-29                        401            105                506</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt;   home_confinement total_currently_positive new_currently_positive recovered</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt; 1               94                      221                    221         1</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt; 2              162                      311                     90         1</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt; 3              221                      385                     74         3</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">#&gt; 4              284                      588                    203        45</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt; 5              412                      821                    233        46</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt; 6              543                     1049                    228        50</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">#&gt;   death total_positive_cases total_tests</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt; 1     7                  229        4324</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co">#&gt; 2    10                  322        8623</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="co">#&gt; 3    12                  400        9587</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#&gt; 4    17                  650       12014</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#&gt; 5    21                  888       15695</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#&gt; 6    29                 1128       18661</span></span></code></pre></div>
 <div id="plotting-the-active-cases-distribution" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting-the-active-cases-distribution" class="anchor"></a>Plotting the active cases distribution</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(plotly)</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">data =</span> italy_total,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>        <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>date,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>        <span class="dt">y =</span> <span class="op">~</span>home_confinement, </span>
-<span id="cb4-6"><a href="#cb4-6"></a>        <span class="dt">name =</span> <span class="st">'Home Confinement'</span>, </span>
-<span id="cb4-7"><a href="#cb4-7"></a>        <span class="dt">fillcolor =</span> <span class="st">'#FDBBBC'</span>,</span>
-<span id="cb4-8"><a href="#cb4-8"></a>        <span class="dt">type =</span> <span class="st">'scatter'</span>,</span>
-<span id="cb4-9"><a href="#cb4-9"></a>        <span class="dt">mode =</span> <span class="st">'none'</span>, </span>
-<span id="cb4-10"><a href="#cb4-10"></a>        <span class="dt">stackgroup =</span> <span class="st">'one'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>( <span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>hospitalized_with_symptoms, </span>
-<span id="cb4-12"><a href="#cb4-12"></a>             <span class="dt">name =</span> <span class="st">"Hospitalized with Symptoms"</span>,</span>
-<span id="cb4-13"><a href="#cb4-13"></a>             <span class="dt">fillcolor =</span> <span class="st">'#E41317'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">y =</span> <span class="op">~</span>intensive_care, </span>
-<span id="cb4-15"><a href="#cb4-15"></a>                <span class="dt">name =</span> <span class="st">'Intensive Care'</span>, </span>
-<span id="cb4-16"><a href="#cb4-16"></a>                <span class="dt">fillcolor =</span> <span class="st">'#9E0003'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Italy - Distribution of Active Covid19 Cases"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
-<span id="cb4-19"><a href="#cb4-19"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
-<span id="cb4-20"><a href="#cb4-20"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Source: Italy Department of Civil Protection"</span>))</span>
-<span id="cb4-21"><a href="#cb4-21"></a>  </span>
-<span id="cb4-22"><a href="#cb4-22"></a></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(plotly)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">data =</span> italy_total,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>        <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>date,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        <span class="dt">y =</span> <span class="op">~</span>home_confinement, </span>
+<span id="cb5-6"><a href="#cb5-6"></a>        <span class="dt">name =</span> <span class="st">'Home Confinement'</span>, </span>
+<span id="cb5-7"><a href="#cb5-7"></a>        <span class="dt">fillcolor =</span> <span class="st">'#FDBBBC'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        <span class="dt">type =</span> <span class="st">'scatter'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        <span class="dt">mode =</span> <span class="st">'none'</span>, </span>
+<span id="cb5-10"><a href="#cb5-10"></a>        <span class="dt">stackgroup =</span> <span class="st">'one'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>( <span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>hospitalized_with_symptoms, </span>
+<span id="cb5-12"><a href="#cb5-12"></a>             <span class="dt">name =</span> <span class="st">"Hospitalized with Symptoms"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13"></a>             <span class="dt">fillcolor =</span> <span class="st">'#E41317'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">y =</span> <span class="op">~</span>intensive_care, </span>
+<span id="cb5-15"><a href="#cb5-15"></a>                <span class="dt">name =</span> <span class="st">'Intensive Care'</span>, </span>
+<span id="cb5-16"><a href="#cb5-16"></a>                <span class="dt">fillcolor =</span> <span class="st">'#9E0003'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Italy - Distribution of Active Covid19 Cases"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
+<span id="cb5-19"><a href="#cb5-19"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
+<span id="cb5-20"><a href="#cb5-20"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Source: Italy Department of Civil Protection"</span>))</span>
+<span id="cb5-21"><a href="#cb5-21"></a>  </span>
+<span id="cb5-22"><a href="#cb5-22"></a></span></code></pre></div>
 <p><img src="reference/figures/positive_dist.png" width="100%"></p>
 </div>
 <div id="plotting-the-daily-cases-distribution" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting-the-daily-cases-distribution" class="anchor"></a>Plotting the daily cases distribution</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">data =</span> italy_total,</span>
-<span id="cb5-2"><a href="#cb5-2"></a>        <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>date,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>        <span class="dt">y =</span> <span class="op">~</span>total_currently_positive, </span>
-<span id="cb5-4"><a href="#cb5-4"></a>        <span class="dt">name =</span> <span class="st">'Active'</span>, </span>
-<span id="cb5-5"><a href="#cb5-5"></a>        <span class="dt">fillcolor =</span> <span class="st">'#1f77b4'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>        <span class="dt">type =</span> <span class="st">'scatter'</span>,</span>
-<span id="cb5-7"><a href="#cb5-7"></a>        <span class="dt">mode =</span> <span class="st">'none'</span>, </span>
-<span id="cb5-8"><a href="#cb5-8"></a>        <span class="dt">stackgroup =</span> <span class="st">'one'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>( <span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>death, </span>
-<span id="cb5-10"><a href="#cb5-10"></a>             <span class="dt">name =</span> <span class="st">"Death"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11"></a>             <span class="dt">fillcolor =</span> <span class="st">'#E41317'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">y =</span> <span class="op">~</span>recovered, </span>
-<span id="cb5-13"><a href="#cb5-13"></a>            <span class="dt">name =</span> <span class="st">'Recovered'</span>, </span>
-<span id="cb5-14"><a href="#cb5-14"></a>            <span class="dt">fillcolor =</span> <span class="st">'forestgreen'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Italy - Distribution of Covid19 Cases"</span>,</span>
-<span id="cb5-16"><a href="#cb5-16"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
-<span id="cb5-17"><a href="#cb5-17"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
-<span id="cb5-18"><a href="#cb5-18"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Source: Italy Department of Civil Protection"</span>))</span>
-<span id="cb5-19"><a href="#cb5-19"></a></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">data =</span> italy_total,</span>
+<span id="cb6-2"><a href="#cb6-2"></a>        <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>date,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="dt">y =</span> <span class="op">~</span>total_currently_positive, </span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="dt">name =</span> <span class="st">'Active'</span>, </span>
+<span id="cb6-5"><a href="#cb6-5"></a>        <span class="dt">fillcolor =</span> <span class="st">'#1f77b4'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="dt">type =</span> <span class="st">'scatter'</span>,</span>
+<span id="cb6-7"><a href="#cb6-7"></a>        <span class="dt">mode =</span> <span class="st">'none'</span>, </span>
+<span id="cb6-8"><a href="#cb6-8"></a>        <span class="dt">stackgroup =</span> <span class="st">'one'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>( <span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>death, </span>
+<span id="cb6-10"><a href="#cb6-10"></a>             <span class="dt">name =</span> <span class="st">"Death"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11"></a>             <span class="dt">fillcolor =</span> <span class="st">'#E41317'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">y =</span> <span class="op">~</span>recovered, </span>
+<span id="cb6-13"><a href="#cb6-13"></a>            <span class="dt">name =</span> <span class="st">'Recovered'</span>, </span>
+<span id="cb6-14"><a href="#cb6-14"></a>            <span class="dt">fillcolor =</span> <span class="st">'forestgreen'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Italy - Distribution of Covid19 Cases"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
+<span id="cb6-17"><a href="#cb6-17"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
+<span id="cb6-18"><a href="#cb6-18"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Source: Italy Department of Civil Protection"</span>))</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span></code></pre></div>
 <p><img src="reference/figures/case_dist.png" width="100%"></p>
 </div>
 <div id="cases-distribution-by-region" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cases-distribution-by-region" class="anchor"></a>Cases distribution by region</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>italy_region <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">filter</a></span>(date <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">max</a></span>(date)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">select</a></span>(region_name, total_currently_positive, recovered, death, total_positive_cases) <span class="op">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">arrange</a></span>(<span class="op">-</span>total_positive_cases) <span class="op">%&gt;%</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">mutate</a></span>(<span class="dt">region =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(region_name, <span class="dt">levels =</span> region_name)) <span class="op">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>region, </span>
-<span id="cb6-7"><a href="#cb6-7"></a>          <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>total_currently_positive, </span>
-<span id="cb6-8"><a href="#cb6-8"></a>          <span class="dt">orientation =</span> <span class="st">'h'</span>,</span>
-<span id="cb6-9"><a href="#cb6-9"></a>          <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>total_currently_positive,</span>
-<span id="cb6-10"><a href="#cb6-10"></a>          <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
-<span id="cb6-11"><a href="#cb6-11"></a>          <span class="dt">type =</span> <span class="st">"bar"</span>, </span>
-<span id="cb6-12"><a href="#cb6-12"></a>          <span class="dt">name =</span> <span class="st">"Active"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13"></a>          <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"#1f77b4"</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>recovered,</span>
-<span id="cb6-15"><a href="#cb6-15"></a>            <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>recovered,</span>
-<span id="cb6-16"><a href="#cb6-16"></a>            <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
-<span id="cb6-17"><a href="#cb6-17"></a>            <span class="dt">name =</span> <span class="st">"Recovered"</span>,</span>
-<span id="cb6-18"><a href="#cb6-18"></a>            <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"forestgreen"</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>death, </span>
-<span id="cb6-20"><a href="#cb6-20"></a>            <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>death,</span>
-<span id="cb6-21"><a href="#cb6-21"></a>            <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
-<span id="cb6-22"><a href="#cb6-22"></a>            <span class="dt">name =</span> <span class="st">"Death"</span>,</span>
-<span id="cb6-23"><a href="#cb6-23"></a>            <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"red"</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Cases Distribution by Region"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25"></a>         <span class="dt">barmode =</span> <span class="st">'stack'</span>,</span>
-<span id="cb6-26"><a href="#cb6-26"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Region"</span>),</span>
-<span id="cb6-27"><a href="#cb6-27"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
-<span id="cb6-28"><a href="#cb6-28"></a>         <span class="dt">hovermode =</span> <span class="st">"compare"</span>,</span>
-<span id="cb6-29"><a href="#cb6-29"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.65</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
-<span id="cb6-30"><a href="#cb6-30"></a>         <span class="dt">margin =</span>  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</span>
-<span id="cb6-31"><a href="#cb6-31"></a>           <span class="dt">l =</span> <span class="dv">20</span>,</span>
-<span id="cb6-32"><a href="#cb6-32"></a>           <span class="dt">r =</span> <span class="dv">10</span>,</span>
-<span id="cb6-33"><a href="#cb6-33"></a>           <span class="dt">b =</span> <span class="dv">10</span>,</span>
-<span id="cb6-34"><a href="#cb6-34"></a>           <span class="dt">t =</span> <span class="dv">30</span>,</span>
-<span id="cb6-35"><a href="#cb6-35"></a>           <span class="dt">pad =</span> <span class="dv">2</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a>         ))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>italy_region <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">filter</a></span>(date <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">max</a></span>(date)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">select</a></span>(region_name, total_currently_positive, recovered, death, total_positive_cases) <span class="op">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">arrange</a></span>(<span class="op">-</span>total_positive_cases) <span class="op">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">mutate</a></span>(<span class="dt">region =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(region_name, <span class="dt">levels =</span> region_name)) <span class="op">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">y =</span> <span class="op">~</span><span class="st"> </span>region, </span>
+<span id="cb7-7"><a href="#cb7-7"></a>          <span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>total_currently_positive, </span>
+<span id="cb7-8"><a href="#cb7-8"></a>          <span class="dt">orientation =</span> <span class="st">'h'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9"></a>          <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>total_currently_positive,</span>
+<span id="cb7-10"><a href="#cb7-10"></a>          <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
+<span id="cb7-11"><a href="#cb7-11"></a>          <span class="dt">type =</span> <span class="st">"bar"</span>, </span>
+<span id="cb7-12"><a href="#cb7-12"></a>          <span class="dt">name =</span> <span class="st">"Active"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13"></a>          <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"#1f77b4"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>recovered,</span>
+<span id="cb7-15"><a href="#cb7-15"></a>            <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>recovered,</span>
+<span id="cb7-16"><a href="#cb7-16"></a>            <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
+<span id="cb7-17"><a href="#cb7-17"></a>            <span class="dt">name =</span> <span class="st">"Recovered"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18"></a>            <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"forestgreen"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/add_trace">add_trace</a></span>(<span class="dt">x =</span> <span class="op">~</span><span class="st"> </span>death, </span>
+<span id="cb7-20"><a href="#cb7-20"></a>            <span class="dt">text =</span>  <span class="op">~</span><span class="st"> </span>death,</span>
+<span id="cb7-21"><a href="#cb7-21"></a>            <span class="dt">textposition =</span> <span class="st">'auto'</span>,</span>
+<span id="cb7-22"><a href="#cb7-22"></a>            <span class="dt">name =</span> <span class="st">"Death"</span>,</span>
+<span id="cb7-23"><a href="#cb7-23"></a>            <span class="dt">marker =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">color =</span> <span class="st">"red"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Cases Distribution by Region"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25"></a>         <span class="dt">barmode =</span> <span class="st">'stack'</span>,</span>
+<span id="cb7-26"><a href="#cb7-26"></a>         <span class="dt">yaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Region"</span>),</span>
+<span id="cb7-27"><a href="#cb7-27"></a>         <span class="dt">xaxis =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">title =</span> <span class="st">"Number of Cases"</span>),</span>
+<span id="cb7-28"><a href="#cb7-28"></a>         <span class="dt">hovermode =</span> <span class="st">"compare"</span>,</span>
+<span id="cb7-29"><a href="#cb7-29"></a>         <span class="dt">legend =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">x =</span> <span class="fl">0.65</span>, <span class="dt">y =</span> <span class="fl">0.9</span>),</span>
+<span id="cb7-30"><a href="#cb7-30"></a>         <span class="dt">margin =</span>  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</span>
+<span id="cb7-31"><a href="#cb7-31"></a>           <span class="dt">l =</span> <span class="dv">20</span>,</span>
+<span id="cb7-32"><a href="#cb7-32"></a>           <span class="dt">r =</span> <span class="dv">10</span>,</span>
+<span id="cb7-33"><a href="#cb7-33"></a>           <span class="dt">b =</span> <span class="dv">10</span>,</span>
+<span id="cb7-34"><a href="#cb7-34"></a>           <span class="dt">t =</span> <span class="dv">30</span>,</span>
+<span id="cb7-35"><a href="#cb7-35"></a>           <span class="dt">pad =</span> <span class="dv">2</span></span>
+<span id="cb7-36"><a href="#cb7-36"></a>         ))</span></code></pre></div>
 <p><img src="reference/figures/region_bar_plot.png" width="100%"></p>
 </div>
 <div id="cases-distribution-by-province-for-lombardia-region" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cases-distribution-by-province-for-lombardia-region" class="anchor"></a>Cases distribution by province for Lombardia region</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>italy_province <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">filter</a></span>(date <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">max</a></span>(date), region_name <span class="op">==</span><span class="st"> "Lombardia"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">labels =</span> <span class="op">~</span>province_name, <span class="dt">values =</span> <span class="op">~</span>total_cases, </span>
-<span id="cb7-4"><a href="#cb7-4"></a>                  <span class="dt">textinfo=</span><span class="st">"label+percent"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5"></a>                  <span class="dt">type =</span> <span class="st">'pie'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Lombardia - Cases Distribution by Province"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/hide_legend">hide_legend</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>italy_province <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/reexports">filter</a></span>(date <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">max</a></span>(date), region_name <span class="op">==</span><span class="st"> "Lombardia"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/plot_ly">plot_ly</a></span>(<span class="dt">labels =</span> <span class="op">~</span>province_name, <span class="dt">values =</span> <span class="op">~</span>total_cases, </span>
+<span id="cb8-4"><a href="#cb8-4"></a>                  <span class="dt">textinfo=</span><span class="st">"label+percent"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>                  <span class="dt">type =</span> <span class="st">'pie'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/layout">layout</a></span>(<span class="dt">title =</span> <span class="st">"Lombardia - Cases Distribution by Province"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/plotly/topics/hide_legend">hide_legend</a></span>()</span></code></pre></div>
 <p><img src="reference/figures/province_pie.png" width="100%"></p>
 </div>
 </div>
@@ -254,6 +265,7 @@
 <li>Rami Krispin <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
+
 
       <div class="dev-status">
 <h2>Dev status</h2>
