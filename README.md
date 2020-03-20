@@ -54,11 +54,11 @@ library(covid19italy)
 update_data()
 ```
 
+Note: must restart the R session to have the updates available
+
 ## Usage
 
 ``` r
-
-
 data(italy_total)
 
 head(italy_total)
