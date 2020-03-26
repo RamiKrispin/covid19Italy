@@ -26,9 +26,9 @@ data_refresh <- function(){
                       "home_confinement",
                       "total_currently_positive",
                       "new_currently_positive",
-                      "recovered", "death", "total_positive_cases", "total_tests")) %>%
+                      "recovered", "death", "total_positive_cases", "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, -state) %>%
+    dplyr::select(-date_temp, -state, -notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::arrange(date)
 
@@ -72,9 +72,10 @@ data_refresh <- function(){
 
   df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv", stringsAsFactors = FALSE) %>%
     stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
-                      "province_name", "province_abb", "lat", "long", "total_cases")) %>%
+                      "province_name", "province_abb", "lat", "long", "total_cases",
+                      "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, -state) %>%
+    dplyr::select(-date_temp, -state, - notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::arrange(date)
 
@@ -155,9 +156,9 @@ data_refresh <- function(){
                       "home_confinement",
                       "total_currently_positive",
                       "new_currently_positive",
-                      "recovered", "death", "total_positive_cases", "total_tests")) %>%
+                      "recovered", "death", "total_positive_cases", "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, - state) %>%
+    dplyr::select(-date_temp, - state, -notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::arrange(date)
 
