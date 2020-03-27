@@ -67,6 +67,66 @@ The `italy_total` dataset provides an overall summary of the cases in Italy sinc
 
 
 ```{r}
+library(covid19italy)
+
 data(italy_total)
+
+str(italy_total)
+
+head(italy_total)
 ```
 
+
+
+## Italy region level
+
+The `italy_region` dataset provides an overall summary of the cases in Italy's regions. The dataset contains the following fields:
+
+* `date` - timestamp, a `Date` object
+* `region_code` - the region code
+* `region_name` - the region name
+* `lat` - region latitude coordinate
+* `long` - region longitude coordinate
+* `hospitalized_with_symptoms` - daily number of patients hospitalized with symptoms
+* `intensive_care` - daily number of patients on intensive care
+* `total_hospitalized` - daily total number of patients hospitalized (`hospitalized_with_symptoms` + `intensive_care`)
+* `home_confinement` - daily number of people under home confinement
+* `total_currently_positive` - a daily snapshot of the number of positive cases
+* `new_currently_positive` - daily new positive cases
+* `recovered` - total number of recovered cases (cumulative)
+* `death` - total number of death cases (cumulative)
+* `total_positive_cases` - total number of positive cases (cumulative)
+* `total_tests` - total number of tests performed (cumulative)
+
+
+```{r}
+data(italy_region)
+
+str(italy_region)
+
+head(italy_region)
+```
+
+## Italy province level
+
+The `italy_region` dataset provides an overall summary of the cases in Italy's regions. The dataset contains the following fields:
+
+* `date` - timestamp, a `Date` object
+* `region_code` - the region code
+* `region_name` - the region name
+* `province_code` - the province code
+* `province_name` - the province name
+* `province_abb` - the province abbreviation
+* `lat` - province latitude coordinate
+* `long` - province longitude coordinate
+* `total_cases` - total number of positive cases (cumulative)
+* `new_tests` - daily number of positive cases
+
+
+```{r}
+data(italy_province)
+
+str(italy_province)
+
+head(italy_province)
+```
