@@ -31,13 +31,15 @@ Protection](http://www.protezionecivile.it/)
 ## Installation
 
 You can install the released version of covid19italy from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://cran.r-project.org/web/packages/covid19italy/index.html)
+with:
 
 ``` r
 install.packages("covid19italy")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+Or, install the most recent version from
+[GitHub](https://github.com/RamiKrispin/covid19italy) with:
 
 ``` r
 # install.packages("devtools")
