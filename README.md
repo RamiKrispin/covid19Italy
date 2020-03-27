@@ -12,6 +12,8 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub
+commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/RamiKrispin/covid19Italy/commit/master)
 <!-- badges: end -->
 
 The covid19italy R package provides a tidy format dataset of the 2019
