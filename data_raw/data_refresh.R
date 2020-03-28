@@ -76,7 +76,7 @@ data_refresh <- function(){
                       "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
     dplyr::select(-date_temp, -state, - notes_it, -notes_en) %>%
-    dplyr::select(date, dplyr::everything()) %>%
+    dplyr::select(date, dplyr::everything())
     dplyr::arrange(date)
 
   head(df1)
@@ -160,9 +160,33 @@ data_refresh <- function(){
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
     dplyr::select(-date_temp, - state, -notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
+    dplyr::mutate(region_spatial = region_name) %>%
     dplyr::arrange(date)
 
 
+  italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Emilia Romagna",
+                                        "Emilia-Romagna",
+                                        italy_region$region_spatial)
+
+
+  italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Friuli Venezia Giulia",
+                                        "Friuli-Venezia Giulia",
+                                        italy_region$region_spatial)
+
+
+  italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Sicilia",
+                                        "Sicily",
+                                        italy_region$region_spatial)
+
+  italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Puglia",
+                                        "Apulia",
+                                        italy_region$region_spatial)
+
+
+  italy_region$region_spatial <- ifelse(italy_region$region_spatial == "P.A. Bolzano" |
+                                          italy_region$region_spatial == "P.A. Trento",
+                                        "Trentino-Alto Adige",
+                                        italy_region$region_spatial)
 
   # Testing if there is a change in the data
 
