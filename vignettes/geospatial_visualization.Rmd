@@ -1,0 +1,88 @@
+---
+title: "Choropleth Maps Visualization"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{geospatial_visualization}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message=FALSE, 
+  warning=FALSE,
+  fig.height=8, 
+  fig.width=8,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+The goal of this vignette is to demonstrate methods for creating choropleth maps for the covid19 cases in Italy by province and region. We will use the [rnaturalearth](https://docs.ropensci.org/rnaturalearth/) package to extract the geometry spital data of Italy, and [mapview](https://r-spatial.github.io/mapview/index.html), [ggplot2](https://ggplot2.tidyverse.org/index.html), and [plotly](https://plotly.com/r/) packages to create interactive choropleth maps of Italy province and regions.
+
+
+
+
+```{r setup}
+library(covid19italy)
+library(rnaturalearth)
+library(dplyr)
+library(mapview)
+```
+
+
+## Getting the geometry spital data
+
+The `ne_state` function from the rnaturalearth package returns the geometry spital data of Italy's province. We will set the return class to `sf` (Simple Features) object:
+
+```{r}
+italy_map <- ne_states(country = "Italy", returnclass = "sf") 
+
+str(italy_map)
+```
+
+The function returns many features, such as a different naming convention. However, we will only need the following columns:
+
+* `name` - the province name
+* `region` - the region name
+* `geometry` - the geometry spital data of the provinces
+
+
+```{r fig.height=8, fig.width=8}
+italy_map <- italy_map %>% 
+  select(province = name, region, geometry) 
+
+head(italy_map)
+```
+
+```{r}
+italy_map %>% 
+  left_join(italy_province %>% 
+                                 filter(date == max(date)) %>%
+                                 select(province = province_spatial, total_cases), 
+                               by = "province") %>%
+  mapview(zcol = "total_cases")
+```
+
+
+
+```{r}
+italy_map %>% 
+  select(region) %>%
+  group_by(region) %>%
+  summarise(n = n()) %>%
+  
+  left_join(italy_region %>% 
+                                 filter(date == max(date)) %>%
+                                 select(region = region_spatial, total_tests), 
+                               by = "region") %>%
+  mapview(zcol = "total_tests")
+```
+```
+
+
+
+
+
+
