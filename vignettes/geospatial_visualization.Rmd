@@ -1,5 +1,5 @@
 ---
-title: "Choropleth Maps Visualization"
+title: "Visualization covid19italy with Choropleth Maps "
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{geospatial_visualization}
@@ -42,7 +42,7 @@ italy_map <- ne_states(country = "Italy", returnclass = "sf")
 str(italy_map)
 ```
 
-The function returns many features, such as a different naming convention. However, we will only need the following columns:
+The function returns many features, such as a different naming convention. However, for the purpose of this vignette, we will only need the following columns:
 
 * `name` - the province name
 * `region` - the region name
@@ -56,6 +56,22 @@ italy_map <- italy_map %>%
 head(italy_map)
 ```
 
+The `italy_map` object, as it is, can now use to create a choropleth map plot for the province level. To get a similar object to the regional level, we will use the **dplyr** package to group the data by the `region` column. This will automatically will group the **geometry** objects of the `italy_map` to the region level:
+
+```{r}
+italy_map_region <- italy_map %>%
+  group_by(region) %>%
+  summarise(n = n())
+
+head(italy_map_region)
+```
+
+Note that since we had to feed some variable to the `summarise` function, we used the n function as a dummy variable.
+
+Now that we have one object for the province level and one for the regional level, we can start to plot them.
+
+## Choropleth maps with mapview package
+
 ```{r}
 italy_map %>% 
   left_join(italy_province %>% 
@@ -68,15 +84,13 @@ italy_map %>%
 
 
 ```{r}
-italy_map %>% 
-  select(region) %>%
-  group_by(region) %>%
-  summarise(n = n()) %>%
+italy_map_region %>% 
   
   left_join(italy_region %>% 
                                  filter(date == max(date)) %>%
                                  select(region = region_spatial, total_tests), 
                                by = "region") %>%
+  select(-n) %>%
   mapview(zcol = "total_tests")
 ```
 ```
