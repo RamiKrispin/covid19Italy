@@ -10,7 +10,7 @@ test_that(desc = "Test the dates", {
 test_that(desc = "Test the structure", {
 
   expect_equal(base::ncol(italy_total) == 11, TRUE)
-  expect_equal(base::ncol(italy_region) == 15, TRUE)
+  expect_equal(base::ncol(italy_region) == 16, TRUE)
   expect_equal(base::ncol(italy_province) == 10, TRUE)
 
   expect_equal(base::nrow(italy_total) >= 24, TRUE)
