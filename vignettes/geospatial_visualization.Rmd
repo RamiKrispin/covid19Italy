@@ -115,9 +115,8 @@ Similarly, we can plot the region level total number of tests conduct as of `r m
 italy_map_region %>% 
   mapview(zcol = "total_tests")
 ```
-```
 
-
+Additional customization options can be found on the mapview package [site](https://r-spatial.github.io/mapview/index.html)
 
 
 
