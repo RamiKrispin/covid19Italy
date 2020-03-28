@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Package Datasets • covid19italy</title>
+<title>Introduction to the covid19italy Datasets • covid19italy</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Package Datasets">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to the covid19italy Datasets">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -53,7 +53,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/intro.html">Package Datasets</a>
+      <a href="../articles/geospatial_visualization.html">Geospatial Visualization</a>
+    </li>
+    <li>
+      <a href="../articles/intro.html">Introduction to the covid19italy Datasets</a>
     </li>
   </ul>
 </li>
@@ -80,7 +83,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Package Datasets</h1>
+      <h1>Introduction to the covid19italy Datasets</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/RamiKrispin/covid19italy/blob/master/vignettes/intro.Rmd"><code>vignettes/intro.Rmd</code></a></small>
@@ -222,11 +225,13 @@
 <code>total_positive_cases</code> - total number of positive cases (cumulative)</li>
 <li>
 <code>total_tests</code> - total number of tests performed (cumulative)</li>
+<li>
+<code>region_spatial</code> - the spatial region name as in the output of the <code>ne_states</code> function from the <strong>rnaturalearth</strong> package</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(italy_region)</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/str">str</a></span>(italy_region)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; 'data.frame':    693 obs. of  15 variables:</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; 'data.frame':    693 obs. of  16 variables:</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt;  $ date                      : Date, format: "2020-02-24" "2020-02-24" ...</span></span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt;  $ region_code               : int  13 17 4 18 15 8 6 12 7 3 ...</span></span>
 <span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt;  $ region_name               : chr  "Abruzzo" "Basilicata" "P.A. Bolzano" "Calabria" ...</span></span>
@@ -242,36 +247,37 @@
 <span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt;  $ death                     : int  0 0 0 0 0 0 0 0 0 6 ...</span></span>
 <span id="cb5-18"><a href="#cb5-18"></a><span class="co">#&gt;  $ total_positive_cases      : int  0 0 0 0 0 18 0 3 0 172 ...</span></span>
 <span id="cb5-19"><a href="#cb5-19"></a><span class="co">#&gt;  $ total_tests               : int  5 0 1 1 10 148 58 124 1 1463 ...</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(italy_region)</span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="co">#&gt;         date region_code    region_name      lat     long</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#&gt; 1 2020-02-24          13        Abruzzo 42.35122 13.39844</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#&gt; 2 2020-02-24          17     Basilicata 40.63947 15.80515</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#&gt; 3 2020-02-24           4   P.A. Bolzano 46.49933 11.35662</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="co">#&gt; 4 2020-02-24          18       Calabria 38.90598 16.59440</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a><span class="co">#&gt; 5 2020-02-24          15       Campania 40.83957 14.25085</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a><span class="co">#&gt; 6 2020-02-24           8 Emilia Romagna 44.49437 11.34172</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a><span class="co">#&gt;   hospitalized_with_symptoms intensive_care total_hospitalized home_confinement</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a><span class="co">#&gt; 1                          0              0                  0                0</span></span>
-<span id="cb5-31"><a href="#cb5-31"></a><span class="co">#&gt; 2                          0              0                  0                0</span></span>
-<span id="cb5-32"><a href="#cb5-32"></a><span class="co">#&gt; 3                          0              0                  0                0</span></span>
-<span id="cb5-33"><a href="#cb5-33"></a><span class="co">#&gt; 4                          0              0                  0                0</span></span>
-<span id="cb5-34"><a href="#cb5-34"></a><span class="co">#&gt; 5                          0              0                  0                0</span></span>
-<span id="cb5-35"><a href="#cb5-35"></a><span class="co">#&gt; 6                         10              2                 12                6</span></span>
-<span id="cb5-36"><a href="#cb5-36"></a><span class="co">#&gt;   total_currently_positive new_currently_positive recovered death</span></span>
-<span id="cb5-37"><a href="#cb5-37"></a><span class="co">#&gt; 1                        0                      0         0     0</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt; 2                        0                      0         0     0</span></span>
-<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt; 3                        0                      0         0     0</span></span>
-<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; 4                        0                      0         0     0</span></span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; 5                        0                      0         0     0</span></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; 6                       18                     18         0     0</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt;   total_positive_cases total_tests</span></span>
-<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt; 1                    0           5</span></span>
-<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; 2                    0           0</span></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; 3                    0           1</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt; 4                    0           1</span></span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt; 5                    0          10</span></span>
-<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt; 6                   18         148</span></span></code></pre></div>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co">#&gt;  $ region_spatial            : chr  "Abruzzo" "Basilicata" "Trentino-Alto Adige" "Calabria" ...</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(italy_region)</span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#&gt;         date region_code    region_name      lat     long</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#&gt; 1 2020-02-24          13        Abruzzo 42.35122 13.39844</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#&gt; 2 2020-02-24          17     Basilicata 40.63947 15.80515</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">#&gt; 3 2020-02-24           4   P.A. Bolzano 46.49933 11.35662</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">#&gt; 4 2020-02-24          18       Calabria 38.90598 16.59440</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">#&gt; 5 2020-02-24          15       Campania 40.83957 14.25085</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">#&gt; 6 2020-02-24           8 Emilia Romagna 44.49437 11.34172</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co">#&gt;   hospitalized_with_symptoms intensive_care total_hospitalized home_confinement</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">#&gt; 1                          0              0                  0                0</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co">#&gt; 2                          0              0                  0                0</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">#&gt; 3                          0              0                  0                0</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">#&gt; 4                          0              0                  0                0</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co">#&gt; 5                          0              0                  0                0</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co">#&gt; 6                         10              2                 12                6</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">#&gt;   total_currently_positive new_currently_positive recovered death</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt; 1                        0                      0         0     0</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt; 2                        0                      0         0     0</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; 3                        0                      0         0     0</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; 4                        0                      0         0     0</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; 5                        0                      0         0     0</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt; 6                       18                     18         0     0</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt;   total_positive_cases total_tests      region_spatial</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; 1                    0           5             Abruzzo</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; 2                    0           0          Basilicata</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt; 3                    0           1 Trentino-Alto Adige</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt; 4                    0           1            Calabria</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt; 5                    0          10            Campania</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt; 6                   18         148      Emilia-Romagna</span></span></code></pre></div>
 </div>
 <div id="italy-province-level" class="section level2">
 <h2 class="hasAnchor">
