@@ -97,6 +97,7 @@ The `italy_region` dataset provides an overall summary of the cases in Italy's r
 * `death` - total number of death cases (cumulative)
 * `total_positive_cases` - total number of positive cases (cumulative)
 * `total_tests` - total number of tests performed (cumulative)
+* `region_spatial` - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package  
 
 
 ```{r}
