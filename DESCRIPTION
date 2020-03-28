@@ -18,7 +18,8 @@ Suggests:
     remotes,
     testthat (>= 2.1.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    rnaturalearth
 URL: https://github.com/RamiKrispin/covid19italy
 BugReports: https://github.com/RamiKrispin/covid19italy/issues
 RoxygenNote: 7.1.0
