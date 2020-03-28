@@ -76,7 +76,7 @@ data_refresh <- function(){
                       "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
     dplyr::select(-date_temp, -state, - notes_it, -notes_en) %>%
-    dplyr::select(date, dplyr::everything())
+    dplyr::select(date, dplyr::everything()) %>%
     dplyr::arrange(date)
 
   head(df1)
@@ -97,8 +97,19 @@ data_refresh <- function(){
                                                     "lat", "long")) %>%
     dplyr::mutate(new_cases = total_cases - total_cases_lag)  %>%
     dplyr::select(-total_cases_lag) %>%
-    dplyr::mutate(new_cases = ifelse(is.na(new_cases), total_cases, new_cases))
+    dplyr::mutate(new_cases = ifelse(is.na(new_cases), total_cases, new_cases)) %>%
+    dplyr::mutate(province_spatial = province_name)
 
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Aosta", "Aoste", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Bolzano", "Bozen", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Crotone", "Crotene", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Massa Carrara", "Massa-Carrara", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Monza e della Brianza", "Monza e Brianza", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Oristano", "Oristrano", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Reggio di Calabria", "Reggio Calabria", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Reggio nell'Emilia", "Reggio Emilia", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Torino", "Turin", italy_province$province_spatial)
+  italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Barletta-Andria-Trani", "Barletta-Andria-Trani", italy_province$province_spatial)
 
 
   # Testing if there is a change in the data
