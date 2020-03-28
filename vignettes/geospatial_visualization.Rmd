@@ -66,31 +66,53 @@ italy_map_region <- italy_map %>%
 head(italy_map_region)
 ```
 
+
 Note that since we had to feed some variable to the `summarise` function, we used the n function as a dummy variable.
+
+Now, we have a geometric object for the provinces and regions levels, we can merge them with the corresponding datasets - italy_province and italy_region. Each dataset ha
+
+
+The `province_spatial` and `region_spatial` columns on the `italy_province` and `italy_region` datasets are the default provinces and regions names as used in the **rnatualearth** package spatial objects, and we will use them to merge the objects:
+
+```{r}
+italy_map_region <- italy_map_region %>%
+  left_join(italy_region %>% 
+              filter(date == max(date)), # subseting for the most recent day
+            by = c("region" = "region_spatial"))
+
+
+italy_map_province <- italy_map %>%
+  left_join(italy_province %>% 
+              filter(date == max(date)), # subseting for the most recent day
+            by = c("province" = "province_spatial"))
+```
+
 
 Now that we have one object for the province level and one for the regional level, we can start to plot them.
 
 ## Choropleth maps with mapview package
 
+The mapview package provides interactive visualisations of spatial data based on the Leaflet JavaScript library. In the following example we will plot the total number of covide19 cases in Italy as of `r max(italy_province$date)`, using the `total_cases` variable:
+
+
 ```{r}
-italy_map %>% 
-  left_join(italy_province %>% 
-                                 filter(date == max(date)) %>%
-                                 select(province = province_spatial, total_cases), 
-                               by = "province") %>%
+italy_map_province %>%
   mapview(zcol = "total_cases")
 ```
 
+The `col.regions` argument enables to set the color pallet of the choropleth map. For example, we will use the `plasma` color pallet from the **viridisLite** package:
+
+```{r}
+italy_map_province %>%
+  mapview(zcol = "total_cases", col.regions = viridisLite::plasma)
+```
+
+
+Similarly, we can plot the region level total number of tests conduct as of `r max(italy_province$date)`:
 
 
 ```{r}
 italy_map_region %>% 
-  
-  left_join(italy_region %>% 
-                                 filter(date == max(date)) %>%
-                                 select(region = region_spatial, total_tests), 
-                               by = "region") %>%
-  select(-n) %>%
   mapview(zcol = "total_tests")
 ```
 ```
