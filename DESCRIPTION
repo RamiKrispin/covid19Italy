@@ -15,6 +15,7 @@ Imports:
   devtools,
 Suggests:
     dplyr (>= 0.8.5),
+    ggplot2 (>= 3.3.0),
     plotly (>= 4.9.2),
     mapview (>= 2.6.11),
     remotes (>= 2.1.1),
