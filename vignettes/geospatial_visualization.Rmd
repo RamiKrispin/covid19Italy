@@ -19,9 +19,7 @@ knitr::opts_chunk$set(
 ```
 
 
-The goal of this vignette is to demonstrate methods for creating choropleth maps for the covid19 cases in Italy by province and region. We will use the [rnaturalearth](https://docs.ropensci.org/rnaturalearth/) package to extract the geometry spital data of Italy, and [mapview](https://r-spatial.github.io/mapview/index.html), [ggplot2](https://ggplot2.tidyverse.org/index.html), and [plotly](https://plotly.com/r/) packages to create interactive choropleth maps of Italy province and regions.
-
-
+The goal of this vignette is to demonstrate methods for creating choropleth maps for the covid19 cases in Italy by province and region. We will use the [rnaturalearth](https://docs.ropensci.org/rnaturalearth/) package to extract the geometry spital data of Italy, and [mapview](https://r-spatial.github.io/mapview/index.html), [ggplot2](https://ggplot2.tidyverse.org/index.html) packages to create choropleth maps of Italy province and regions.
 
 
 ## Getting the geometry spital data
