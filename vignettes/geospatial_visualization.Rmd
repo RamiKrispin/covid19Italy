@@ -24,19 +24,15 @@ The goal of this vignette is to demonstrate methods for creating choropleth maps
 
 
 
-```{r setup}
-library(covid19italy)
-library(rnaturalearth)
-library(dplyr)
-library(mapview)
-```
-
-
 ## Getting the geometry spital data
 
 The `ne_state` function from the rnaturalearth package returns the geometry spital data of Italy's province. We will set the return class to `sf` (Simple Features) object:
 
 ```{r}
+library(covid19italy)
+library(rnaturalearth)
+library(dplyr)
+
 italy_map <- ne_states(country = "Italy", returnclass = "sf") 
 
 str(italy_map)
@@ -96,6 +92,8 @@ The mapview package provides interactive visualisations of spatial data based on
 
 
 ```{r}
+library(mapview)
+
 italy_map_province %>%
   mapview(zcol = "total_cases")
 ```
@@ -119,5 +117,27 @@ italy_map_region %>%
 Additional customization options can be found on the mapview package [site](https://r-spatial.github.io/mapview/index.html)
 
 
+## Choropleth maps with ggplot2 package
+
+Once the geometric objects of the province and region levels are ready, it is straightforward to plot the mops with ggplot2. For example, let's plot the total number of testing again, this time with ggplot2:
+
+```{r}
+library(ggplot2)
+ggplot(data = italy_map_province, aes(fill = `total_cases`)) + 
+  geom_sf() + 
+  scale_fill_viridis_b()
+```
+
+Customizations of the plot can be done with the scale_fill_viridis_b function. For example, by default, the function uses the viridis palette from the viridis package. We can modify the palette to magma, by setting the option argument to A:
 
 
+```{r}
+ggplot(data = italy_map_province, aes(fill = `total_cases`)) + 
+  geom_sf() + 
+    scale_fill_viridis_b(option = "A",
+                       begin = 0.2,
+                       end = 0.7) + 
+   theme_void()
+```
+
+The `theme_void` remove the axis grids and the gray background.
