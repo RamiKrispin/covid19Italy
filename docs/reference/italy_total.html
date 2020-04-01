@@ -145,11 +145,11 @@
 <p>- intensive_care - intensive Care</p>
 <p>- total_hospitalized - total hospitalised patients</p>
 <p>- home_confinement - home confinement</p>
-<p>- total_currently_positive - total amount of current positive cases (Hospitalised patients + Home confinement)</p>
-<p>- new_currently_positive - news amount of current positive cases (Hospitalised patients + Home confinement)</p>
+<p>- cumulative_positive_cases - total amount of current positive cases (Hospitalised patients + Home confinement)</p>
+<p>- daily_positive_cases - new amount of current positive cases (Hospitalised patients + Home confinement)</p>
 <p>- recovered - recovered cases</p>
 <p>- death - death cases</p>
-<p>- total_positive_cases - total positive cases</p>
+<p>- cumulative_cases - total positive cases, recovered, and death cases</p>
 <p>- total_tests - number of tests performed</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -163,20 +163,20 @@
 #&gt; 4 2020-02-27                        248             56                304
 #&gt; 5 2020-02-28                        345             64                409
 #&gt; 6 2020-02-29                        401            105                506
-#&gt;   home_confinement cumulative_positive_cases daily_positive_cases daily_cases
-#&gt; 1               94                       221                    0         221
-#&gt; 2              162                       311                   90          93
-#&gt; 3              221                       385                   74          78
-#&gt; 4              284                       588                  203         250
-#&gt; 5              412                       821                  233         238
-#&gt; 6              543                      1049                  228         240
-#&gt;   recovered death cumulative_cases total_tests
-#&gt; 1         1     7              229        4324
-#&gt; 2         1    10              322        8623
-#&gt; 3         3    12              400        9587
-#&gt; 4        45    17              650       12014
-#&gt; 5        46    21              888       15695
-#&gt; 6        50    29             1128       18661</div><div class='input'>
+#&gt;   home_confinement cumulative_positive_cases daily_positive_cases recovered
+#&gt; 1               94                       221                    0         1
+#&gt; 2              162                       311                   90         1
+#&gt; 3              221                       385                   74         3
+#&gt; 4              284                       588                  203        45
+#&gt; 5              412                       821                  233        46
+#&gt; 6              543                      1049                  228        50
+#&gt;   death cumulative_cases total_tests
+#&gt; 1     7              229        4324
+#&gt; 2    10              322        8623
+#&gt; 3    12              400        9587
+#&gt; 4    17              650       12014
+#&gt; 5    21              888       15695
+#&gt; 6    29             1128       18661</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
