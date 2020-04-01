@@ -29,15 +29,15 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - home_confinement - home confinement
 
-- total_currently_positive - total amount of current positive cases (Hospitalised patients + Home confinement)
+- cumulative_positive_cases - total amount of current positive cases (Hospitalised patients + Home confinement)
 
-- new_currently_positive - news amount of current positive cases (Hospitalised patients + Home confinement)
+- daily_positive_cases - new amount of current positive cases (Hospitalised patients + Home confinement)
 
 - recovered - recovered cases
 
 - death - death cases
 
-- total_positive_cases - total positive cases
+- cumulative_cases - total positive cases, recovered, and death cases
 
 - total_tests - number of tests performed
 }

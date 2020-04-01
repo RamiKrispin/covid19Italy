@@ -18,15 +18,15 @@
 #'
 #' - home_confinement - home confinement
 #'
-#' - total_currently_positive - total amount of current positive cases (Hospitalised patients + Home confinement)
+#' - cumulative_positive_cases - total amount of current positive cases (Hospitalised patients + Home confinement)
 #'
-#' - new_currently_positive - news amount of current positive cases (Hospitalised patients + Home confinement)
+#' - daily_positive_cases - new amount of current positive cases (Hospitalised patients + Home confinement)
 #'
 #' - recovered - recovered cases
 #'
 #' - death - death cases
 #'
-#' - total_positive_cases - total positive cases
+#' - cumulative_cases - total positive cases, recovered, and death cases
 #'
 #' - total_tests - number of tests performed
 #'
@@ -68,19 +68,19 @@
 #'
 #' - home_confinement - home confinement
 #'
-#' - total_currently_positive - total amount of current positive cases (Hospitalised patients + Home confinement)
+#' - cumulative_positive_cases - total amount of current positive cases (Hospitalised patients + Home confinement)
 #'
-#' - new_currently_positive - news amount of current positive cases (Hospitalised patients + Home confinement)
+#' - daily_positive_cases - news amount of current positive cases (Hospitalised patients + Home confinement)
 #'
 #' - recovered - recovered cases
 #'
 #' - death - death cases
 #'
-#' - total_positive_cases - total positive cases
+#' - cumulative_cases - total positive, recovered, and death cases
 #'
 #' - total_tests - number of tests performed
 #'
-#' - region_spatial - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** packag
+#' - region_spatial - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package
 #' @examples
 #'
 #' data(italy_region)
