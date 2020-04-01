@@ -30,7 +30,7 @@ data_refresh <- function(){
                       "recovered", "death", "cumulative_cases",
                       "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, -state, -notes_it, -notes_en) %>%
+    dplyr::select(-date_temp, -state, -notes_it, -notes_en, -daily_cases) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::arrange(date)
 
@@ -175,7 +175,7 @@ data_refresh <- function(){
                       "cumulative_cases",
                       "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, - state, -notes_it, -notes_en) %>%
+    dplyr::select(-date_temp, - state, -notes_it, -notes_en, -daily_cases) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::mutate(region_spatial = region_name) %>%
     dplyr::arrange(date)
