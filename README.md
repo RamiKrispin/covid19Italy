@@ -66,13 +66,13 @@ Note: must restart the R session to have the updates available
 data(italy_total)
 
 head(italy_total)
-#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases daily_cases recovered death cumulative_cases total_tests
-#> 1 2020-02-24                        101             26                127               94                       221                    0         221         1     7              229        4324
-#> 2 2020-02-25                        114             35                150              162                       311                   90          93         1    10              322        8623
-#> 3 2020-02-26                        128             36                164              221                       385                   74          78         3    12              400        9587
-#> 4 2020-02-27                        248             56                304              284                       588                  203         250        45    17              650       12014
-#> 5 2020-02-28                        345             64                409              412                       821                  233         238        46    21              888       15695
-#> 6 2020-02-29                        401            105                506              543                      1049                  228         240        50    29             1128       18661
+#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases recovered death cumulative_cases total_tests
+#> 1 2020-02-24                        101             26                127               94                       221                    0         1     7              229        4324
+#> 2 2020-02-25                        114             35                150              162                       311                   90         1    10              322        8623
+#> 3 2020-02-26                        128             36                164              221                       385                   74         3    12              400        9587
+#> 4 2020-02-27                        248             56                304              284                       588                  203        45    17              650       12014
+#> 5 2020-02-28                        345             64                409              412                       821                  233        46    21              888       15695
+#> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29             1128       18661
 ```
 
 ### Plotting the active cases distribution
