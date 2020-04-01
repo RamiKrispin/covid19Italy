@@ -24,9 +24,11 @@ data_refresh <- function(){
                       "intensive_care",
                       "total_hospitalized",
                       "home_confinement",
-                      "total_currently_positive",
-                      "new_currently_positive",
-                      "recovered", "death", "total_positive_cases", "total_tests", "notes_it", "notes_en")) %>%
+                      "cumulative_positive_cases",
+                      "daily_positive_cases",
+                      "daily_cases",
+                      "recovered", "death", "cumulative_cases",
+                      "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
     dplyr::select(-date_temp, -state, -notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
