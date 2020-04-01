@@ -161,15 +161,19 @@ data_refresh <- function(){
 
   italy_region <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
                            stringsAsFactors = FALSE) %>%
-    stats::setNames(c("date_temp", "state", "region_code", "region_name",
+    stats::setNames(c("date_temp", "state",
+                      "region_code", "region_name",
                       "lat", "long",
                       "hospitalized_with_symptoms",
                       "intensive_care",
                       "total_hospitalized",
                       "home_confinement",
-                      "total_currently_positive",
-                      "new_currently_positive",
-                      "recovered", "death", "total_positive_cases", "total_tests", "notes_it", "notes_en")) %>%
+                      "cumulative_positive_cases",
+                      "daily_positive_cases",
+                      "daily_cases",
+                      "recovered", "death",
+                      "cumulative_cases",
+                      "total_tests", "notes_it", "notes_en")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
     dplyr::select(-date_temp, - state, -notes_it, -notes_en) %>%
     dplyr::select(date, dplyr::everything()) %>%
