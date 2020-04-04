@@ -7,13 +7,13 @@
 
 <!-- badges: start --->
 
-[![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)
+[![build](https://github.com/covid19italy/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/covid19italy/covid19italy/actions?query=workflow%3Abuild)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/covid19italy)](https://cran.r-project.org/package=covid19italy)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub
-commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/RamiKrispin/covid19Italy/commit/master)
+commit](https://img.shields.io/github/last-commit/covid19italy/covid19italy)](https://github.com/covid19italy/covid19Italy/commit/master)
 <!-- badges: end -->
 
 The covid19italy R package provides a tidy format dataset of the 2019
@@ -39,11 +39,11 @@ install.packages("covid19italy")
 ```
 
 Or, install the most recent version from
-[GitHub](https://github.com/RamiKrispin/covid19italy) with:
+[GitHub](https://github.com/covid19italy/covid19italy) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("RamiKrispin/covid19Italy")
+devtools::install_github("covid19italy/covid19Italy")
 ```
 
 ## Data refresh
