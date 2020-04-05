@@ -14,16 +14,10 @@ Depends:
 Imports:
   devtools,
 Suggests:
-    dplyr (>= 0.8.5),
-    ggplot2 (>= 3.3.0),
-    plotly (>= 4.9.2),
-    mapview (>= 2.6.11),
     remotes (>= 2.1.1),
     testthat (>= 2.1.0),
     knitr (>= 1.28),
-    rmarkdown (>= 2.1),
-    sf,
-    rnaturalearth (>= 0.1.0)
+    rmarkdown (>= 2.1)
 URL: https://github.com/covid19italy/covid19italy
 BugReports: https://github.com/covid19italy/covid19italy/issues
 RoxygenNote: 7.1.0
