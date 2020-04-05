@@ -4,12 +4,10 @@
   - `total_currently_positive` -> `cumulative_positive_cases`
   - `new_currently_positive` -> `daily_positive_cases`
   - `total_positive_cases` -> `cumulative_cases`
-  - `daily_cases` - new column
   
 * Update for the **italy_region** dataset:
   - `total_currently_positive` -> `cumulative_positive_cases`
   - `new_currently_positive` -> `daily_positive_cases`
-  - `daily_cases` - new column
 
 ## Version 0.1.0
 
