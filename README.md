@@ -13,7 +13,7 @@
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub
-commit](https://img.shields.io/github/last-commit/covid19R/covid19italy)](https://github.com/covid19R/covid19Italy/commit/master)
+commit](https://img.shields.io/github/last-commit/covid19r/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
 <!-- badges: end -->
 
 The covid19italy R package provides a tidy format dataset of the 2019
