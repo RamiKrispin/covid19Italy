@@ -84,7 +84,7 @@ italy_map_province <- italy_map %>%
 
 Now that we have one object for the province level and one for the regional level, we can start to plot them.
 
-## Choropleth maps with mapview package
+## Choropleth maps with the mapview package
 
 The mapview package provides interactive visualisations of spatial data based on the Leaflet JavaScript library. In the following example we will plot the total number of covide19 cases in Italy as of `r max(italy_province$date)`, using the `total_cases` variable:
 
@@ -115,9 +115,9 @@ italy_map_region %>%
 Additional customization options can be found on the mapview package [site](https://r-spatial.github.io/mapview/index.html)
 
 
-## Choropleth maps with ggplot2 package
+## Choropleth maps with the ggplot2 package
 
-Once the geometric objects of the province and region levels are ready, it is straightforward to plot the mops with ggplot2. For example, let's plot the total number of testing again, this time with ggplot2:
+Once the geometric objects of the province and region levels are ready, it is straightforward to plot the mops with the **ggplot2** package. For example, let's plot the total number of testing again, this time with **ggplot2**:
 
 ```{r}
 library(ggplot2)
@@ -126,7 +126,7 @@ ggplot(data = italy_map_province, aes(fill = `total_cases`)) +
   scale_fill_viridis_b()
 ```
 
-Customizations of the plot can be done with the scale_fill_viridis_b function. For example, by default, the function uses the viridis palette from the viridis package. We can modify the palette to magma, by setting the option argument to A:
+Customizations of the plot color palette can be done with the `scale_fill_viridis_b` argument. For example, by default, the function uses the `viridis` palette from the **viridis** package. We can modify the palette to `magma`, by setting the `option` argument to `A`:
 
 
 ```{r}
