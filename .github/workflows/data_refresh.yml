@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: Rscript -e "install.packages(c('remotes', 'rcmdcheck'))" -e "remotes::install_deps(dependencies = TRUE)"
       - name: Refresh the data
-        run: Rscript -e "$GITHUB_WORKSPACE"/data_raw/github_action.R
+        run: Rscript -e "$GITHUB_WORKSPACE/data_raw"/github_action.R
      
