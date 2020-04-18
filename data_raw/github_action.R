@@ -42,6 +42,7 @@ if(ncol(italy_total_csv) != 11){
 
 if(nrow(italy_total) > nrow(italy_total_csv)){
   print("Updates available")
+  usethis::use_data(italy_total, overwrite = TRUE)
 } else {
   print("Updates are not available")
 }
