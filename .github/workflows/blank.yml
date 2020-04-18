@@ -1,9 +1,9 @@
 name: Data Refresh
 
-on: [push, pull_request]
-  #schedule:
+on: 
+  schedule:
     # * is a special character in YAML so you have to quote this string
-   # - cron:  '0 0 * * *'
+    - cron:  '0 * * * *'
 jobs:
   build:
     name: refresh_italy
