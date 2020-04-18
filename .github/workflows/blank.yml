@@ -2,7 +2,6 @@ name: Data Refresh
 
 on: 
   schedule:
-    # * is a special character in YAML so you have to quote this string
     - cron:  '0 * * * *'
 jobs:
   build:
@@ -23,23 +22,12 @@ jobs:
         run: Rscript -e "install.packages(c('remotes', 'rcmdcheck', 'dplyr', 'lubridate'))" -e "remotes::install_deps(dependencies = TRUE)"
       - name: Refresh the data
         run: Rscript ./data_raw/github_action.R
-<<<<<<< HEAD
       - name: 'deploy_map'
-=======
-      - name: Push updates
->>>>>>> e720e4153ebed3b88425534d767c0a0727fb9fa1
         if: success()
         run: |
           if [[ "$(git status --porcelain)" != "" ]]; then
               git config --global user.name 'RamiKrispin'
               git config --global user.email 'ramkrisp@umich.edu'
-<<<<<<< HEAD
               git commit -am "Update italy total data"
               git push
           fi
-=======
-              git commit -am "update italy total"
-              git push
-          fi
-     
->>>>>>> e720e4153ebed3b88425534d767c0a0727fb9fa1
