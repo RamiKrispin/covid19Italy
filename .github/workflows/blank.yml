@@ -20,6 +20,6 @@ jobs:
           clean: 'true'
           fetch-depth: '1'
       - name: Install dependencies
-        run: Rscript -e "install.packages(c('remotes', 'rcmdcheck'))" -e "remotes::install_deps(dependencies = TRUE)"
+        run: Rscript -e "install.packages(c('remotes', 'rcmdcheck', 'dplyr'))" -e "remotes::install_deps(dependencies = TRUE)"
       - name: Refresh the data
         run: Rscript ./github_action.R
