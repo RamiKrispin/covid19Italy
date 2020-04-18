@@ -22,4 +22,4 @@ jobs:
       #- name: Install dependencies
       #  run: Rscript -e "install.packages(c('remotes', 'rcmdcheck'))" -e "remotes::install_deps(dependencies = TRUE)"
       - name: Refresh the data
-        run: Rscript -e "./github_action.R
+        run: Rscript ./github_action.R
