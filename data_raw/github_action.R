@@ -47,11 +47,11 @@ if(nrow(italy_total) > nrow(italy_total_csv)){
   print("Updates are not available")
 }
 
-return(italy_total)
+return(print("Done..."))
 
 }
 
 
-head(update_italy_total())
+update_italy_total()
 
 
