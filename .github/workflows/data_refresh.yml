@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: checkout_repo
         uses: actions/checkout@v2
+      - name: set_R
         uses: r-lib/actions/setup-r@master
         with:
           repository: ${{ github.repository }}
