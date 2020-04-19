@@ -1,0 +1,56 @@
+name: Data Refresh
+
+on: 
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 * * * *'
+jobs:
+  build:
+    name: refresh_italy
+    runs-on: macOS-latest
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v2
+      - name: set_R
+        uses: r-lib/actions/setup-r@master
+        with:
+          repository: ${{ github.repository }}
+          ref: 'master'
+          token: ${{ github.token }}
+          clean: 'true'
+          fetch-depth: '1'
+      - name: Install dependencies
+        run: Rscript -e "install.packages(c('remotes', 'rcmdcheck', 'dplyr', 'lubridate'))" -e "remotes::install_deps(dependencies = TRUE)"
+      - name: Refresh Italy total dataset
+        run: Rscript ./data_raw/italy_total_refresh.R
+      - name: Push Italy total
+        if: success()
+        run: |
+          if [[ "$(git status --porcelain)" != "" ]]; then
+              git config --global user.name 'RamiKrispin'
+              git config --global user.email 'ramkrisp@umich.edu'
+              git commit -am "Update italy total data"
+              git push
+          fi
+      - name: Refresh Italy region dataset
+        run: Rscript ./data_raw/italy_region_refresh.R
+      - name: Push Italy region
+        if: success()
+        run: |
+          if [[ "$(git status --porcelain)" != "" ]]; then
+              git config --global user.name 'RamiKrispin'
+              git config --global user.email 'ramkrisp@umich.edu'
+              git commit -am "Update italy region data"
+              git push
+          fi
+      - name: Refresh Italy province dataset
+        run: Rscript ./data_raw/italy_province_refresh.R
+      - name: Push Italy province
+        if: success()
+        run: |
+          if [[ "$(git status --porcelain)" != "" ]]; then
+              git config --global user.name 'RamiKrispin'
+              git config --global user.email 'ramkrisp@umich.edu'
+              git commit -am "Update italy province data"
+              git push
+          fi
