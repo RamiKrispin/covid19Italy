@@ -43,6 +43,7 @@ if(ncol(italy_total_csv) != 11){
 if(nrow(italy_total) > nrow(italy_total_csv)){
   print("Updates available")
   usethis::use_data(italy_total, overwrite = TRUE)
+  write.csv(italy_total, "csv/italy_total.csv", row.names = FALSE)
   print("The region dataset was updated")
 } else {
   print("Updates are not available")
