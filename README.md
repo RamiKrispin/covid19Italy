@@ -41,7 +41,7 @@ Or, install the most recent version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("covid19italy/covid19Italy")
+devtools::install_github("Covid19R/covid19Italy")
 ```
 
 ## Data refresh
