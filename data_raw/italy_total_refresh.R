@@ -13,14 +13,15 @@ italy_total <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/mast
                     "daily_positive_cases",
                     "daily_cases",
                     "recovered", "death", "cumulative_cases",
-                    "total_tests", "notes_it", "notes_en")) %>%
+                    "total_tests", "total_people_tested",
+                    "notes_it", "notes_en")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
   dplyr::select(-date_temp, -state, -notes_it, -notes_en, -daily_cases) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
 
-if(ncol(italy_total) != 11){
+if(ncol(italy_total) != 12){
   stop("The number of columns is invalid")
 } else if(nrow(italy_total)< 48){
   stop("The number of raws does not match the minimum number of rows")
@@ -31,7 +32,7 @@ if(ncol(italy_total) != 11){
 italy_total_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_total.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
-if(ncol(italy_total_csv) != 11){
+if(ncol(italy_total_csv) != 12){
   stop("The number of columns is invalid")
 } else if(nrow(italy_total_csv)< 48){
   stop("The number of raws does not match the minimum number of rows")
