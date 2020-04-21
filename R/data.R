@@ -30,6 +30,8 @@
 #'
 #' - total_tests - number of tests performed
 #'
+#' - total_people_tested - total number of people tested
+#'
 #' @examples
 #'
 #' data(italy_total)
@@ -79,6 +81,8 @@
 #' - cumulative_cases - total positive, recovered, and death cases
 #'
 #' - total_tests - number of tests performed
+#'
+#' - total_people_tested - total number of people tested
 #'
 #' - region_spatial - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package
 #' @examples

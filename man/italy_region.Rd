@@ -49,6 +49,8 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - total_tests - number of tests performed
 
+- total_people_tested - total number of people tested
+
 - region_spatial - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package
 }
 \examples{

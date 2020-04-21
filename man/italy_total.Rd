@@ -40,6 +40,8 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 - cumulative_cases - total positive cases, recovered, and death cases
 
 - total_tests - number of tests performed
+
+- total_people_tested - total number of people tested
 }
 \examples{
 
