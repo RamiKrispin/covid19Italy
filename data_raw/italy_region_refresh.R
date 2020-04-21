@@ -7,16 +7,13 @@ italy_region <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/mas
   stats::setNames(c("date_temp", "state",
                     "region_code", "region_name",
                     "lat", "long",
-                    "hospitalized_with_symptoms",
-                    "intensive_care",
-                    "total_hospitalized",
-                    "home_confinement",
-                    "cumulative_positive_cases",
-                    "daily_positive_cases",
-                    "daily_cases",
-                    "recovered", "death",
-                    "cumulative_cases",
-                    "total_tests", "notes_it", "notes_en")) %>%
+                    "hospitalized_with_symptoms", "intensive_care",
+                    "total_hospitalized", "home_confinement",
+                    "cumulative_positive_cases", "daily_positive_cases",
+                    "daily_cases", "recovered",
+                    "death", "cumulative_cases",
+                    "total_tests", "total_people_tested",
+                    "notes_it", "notes_en")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
   dplyr::select(-date_temp, - state, -notes_it, -notes_en, -daily_cases) %>%
   dplyr::select(date, dplyr::everything()) %>%
@@ -48,7 +45,7 @@ italy_region$region_spatial <- ifelse(italy_region$region_spatial == "P.A. Bolza
                                       italy_region$region_spatial)
 
 
-if(ncol(italy_region) != 16){
+if(ncol(italy_region) != 17){
   stop("The number of columns is invalid")
 } else if(nrow(italy_region)< 1130){
   stop("The number of raws does not match the minimum number of rows")
@@ -59,7 +56,7 @@ if(ncol(italy_region) != 16){
 italy_region_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_region.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
-if(ncol(italy_region_csv) != 16){
+if(ncol(italy_region_csv) != 17){
   stop("The number of columns is invalid")
 } else if(nrow(italy_region_csv)< 1130){
   stop("The number of raws does not match the minimum number of rows")
