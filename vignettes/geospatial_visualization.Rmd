@@ -96,6 +96,9 @@ italy_map_province %>%
   mapview(zcol = "total_cases")
 ```
 
+**Note:** the Italy province spatial data on the rnaturalearth package is not updated with changes in the provinces of the Sardegna region that occurred in 2016. Therefore, some of the provinces in that region is missing from the plot. Alternatively, you can download Italy shapefile from the European Environment Agency [website](https://www.eea.europa.eu/data-and-maps/data/eea-reference-grids-2/gis-files/italy-shapefile). However, the use of shapefiles is not cover on this vignette.
+
+
 The `col.regions` argument enables to set the color pallet of the choropleth map. For example, we will use the `plasma` color pallet from the **viridisLite** package:
 
 ```{r}
