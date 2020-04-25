@@ -201,7 +201,7 @@ italy_province %>%
   hide_legend()
 ```
 
-<img src="man/figures/province_pie.png" width="70%" />
+<img src="man/figures/province_pie.png" width="100%" />
 
 ## Supporting Dashboard
 
