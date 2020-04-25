@@ -1,13 +1,27 @@
-## Version 0.1.0.9000
+## Version 0.2.0
 
+* Automated the data refresh on the Github version with the use of Github Actions
+* Add vignette - Visualization covid19italy with Choropleth Maps (non CRAN, available [here](https://covid19r.github.io/covid19italy/articles/geospatial_visualization.html))
 * Update for the **italy_total** dataset:
   - `total_currently_positive` -> `cumulative_positive_cases`
   - `new_currently_positive` -> `daily_positive_cases`
   - `total_positive_cases` -> `cumulative_cases`
+  - Add new columns:
+      - `total_people_tested` - total number of people tested 
   
 * Update for the **italy_region** dataset:
   - `total_currently_positive` -> `cumulative_positive_cases`
   - `new_currently_positive` -> `daily_positive_cases`
+   - Add new columns:
+      - `total_people_tested` - total number of people tested 
+      - `region_spatial` - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package
+
+* Update for the **italy_province** dataset:
+  - `total_positive_cases` was modified to `total_cases`
+  -  `total_tests` was removed
+  - Add new columns:
+      - `new_cases` - add daily number of positive cases
+      - `province_spatial` - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package
 
 ## Version 0.1.0
 
