@@ -29,13 +29,17 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - province_name - province names
 
+- province_abb - the province abbreviation
+
 - lat - latitude point
 
 - long - Longitude point
 
-- total_positive_cases - total positive cases
+- total_cases - total number of positive cases (cumulative)
 
-- total_tests - number of tests performed
+- new_cases - daily number of positive cases
+
+- province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package
 }
 \examples{
 

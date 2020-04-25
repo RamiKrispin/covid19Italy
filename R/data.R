@@ -84,7 +84,7 @@
 #'
 #' - total_people_tested - total number of people tested
 #'
-#' - region_spatial - the spatial region name as in the output of the `ne_states` function from the **rnaturalearth** package
+#' - region_spatial - the spatial region names as in the output of the `ne_states` function from the **rnaturalearth** package
 #' @examples
 #'
 #' data(italy_region)
@@ -115,13 +115,18 @@
 #'
 #' - province_name - province names
 #'
+#' - province_abb - the province abbreviation
+#'
 #' - lat - latitude point
 #'
 #' - long - Longitude point
 #'
-#' - total_positive_cases - total positive cases
+#' - total_cases - total number of positive cases (cumulative)
 #'
-#' - total_tests - number of tests performed
+#' - new_cases - daily number of positive cases
+#'
+#' - province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package
+#'
 #' @examples
 #'
 #' data(italy_province)
