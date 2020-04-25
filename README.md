@@ -125,7 +125,7 @@ plot_ly(data = italy_total,
 ``` r
 plot_ly(data = italy_total,
         x = ~ date,
-        y = ~total_currently_positive, 
+        y = ~ cumulative_positive_cases, 
         name = 'Active', 
         fillcolor = '#1f77b4',
         type = 'scatter',
@@ -151,13 +151,13 @@ plot_ly(data = italy_total,
 ``` r
 italy_region %>% 
   filter(date == max(date)) %>% 
-  select(region_name, total_currently_positive, recovered, death, total_positive_cases) %>%
-  arrange(-total_positive_cases) %>%
+  select(region_name, cumulative_positive_cases, recovered, death, cumulative_cases) %>%
+  arrange(-cumulative_cases) %>%
   mutate(region = factor(region_name, levels = region_name)) %>%
   plot_ly(y = ~ region, 
-          x = ~ total_currently_positive, 
+          x = ~ cumulative_positive_cases, 
           orientation = 'h',
-          text =  ~ total_currently_positive,
+          text =  ~ cumulative_positive_cases,
           textposition = 'auto',
           type = "bar", 
           name = "Active",
