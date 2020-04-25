@@ -24,7 +24,9 @@ package includes the following three datasets:
     level
 
 More information about the package datasets available
-[here](https://covid19r.github.io/covid19italy/articles/intro.html)
+[here](https://covid19r.github.io/covid19italy/articles/intro.html), and
+supporting dashboard available
+[here](https://ramikrispin.github.io/italy_dash/).
 
 Data source: [Italy Department of Civil
 Protection](http://www.protezionecivile.it/)
@@ -199,4 +201,11 @@ italy_province %>%
   hide_legend()
 ```
 
-<img src="man/figures/province_pie.png" width="100%" />
+<img src="man/figures/province_pie.png" width="70%" />
+
+## Supporting Dashboard
+
+A supporting dashboard for the **covid19italy** datasets available
+[here](https://ramikrispin.github.io/italy_dash/).
+
+<img src="man/figures/dashboard.png" width="100%" />
