@@ -121,10 +121,12 @@
       <small>Source: <a href='https://github.com/Covid19R/covid19italy/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="version-0109000" class="section level2">
+    <div id="version-020" class="section level2">
 <h2 class="hasAnchor">
-<a href="#version-0109000" class="anchor"></a>Version 0.1.0.9000</h2>
+<a href="#version-020" class="anchor"></a>Version 0.2.0</h2>
 <ul>
+<li>Automated the data refresh on the Github version with the use of Github Actions</li>
+<li>Add vignette - Visualization covid19italy with Choropleth Maps (non CRAN, available <a href="https://covid19r.github.io/covid19italy/articles/geospatial_visualization.html">here</a>)</li>
 <li>Update for the <strong>italy_total</strong> dataset:
 <ul>
 <li>
@@ -136,6 +138,12 @@
 <li>
 <code>total_positive_cases</code> -&gt; <code>cumulative_cases</code>
 </li>
+<li>Add new columns:
+<ul>
+<li>
+<code>total_people_tested</code> - total number of people tested</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Update for the <strong>italy_region</strong> dataset:
@@ -145,6 +153,31 @@
 </li>
 <li>
 <code>new_currently_positive</code> -&gt; <code>daily_positive_cases</code>
+</li>
+<li>Add new columns:
+<ul>
+<li>
+<code>total_people_tested</code> - total number of people tested</li>
+<li>
+<code>region_spatial</code> - the spatial region name as in the output of the <code>ne_states</code> function from the <strong>rnaturalearth</strong> package</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update for the <strong>italy_province</strong> dataset:
+<ul>
+<li>
+<code>total_positive_cases</code> was modified to <code>total_cases</code>
+</li>
+<li>
+<code>total_tests</code> was removed</li>
+<li>Add new columns:
+<ul>
+<li>
+<code>new_cases</code> - add daily number of positive cases</li>
+<li>
+<code>province_spatial</code> - the spatial province names as in the output of the <code>ne_states</code> function from the <strong>rnaturalearth</strong> package</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -175,7 +208,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#version-0109000">0.1.0.9000</a></li>
+        <li><a href="#version-020">0.2.0</a></li>
         <li><a href="#version-010">0.1.0</a></li>
       </ul>
     </div>
