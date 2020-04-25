@@ -26,6 +26,8 @@ package includes the following three datasets:
 Data source: [Italy Department of Civil
 Protection](http://www.protezionecivile.it/)
 
+<img src="man/figures/Italy_province.png" width="100%" />
+
 ## Installation
 
 You can install the released version of covid19italy from
@@ -71,6 +73,13 @@ head(italy_total)
 #> 4 2020-02-27                        248             56                304              284                       588                  203        45    17              650       12014
 #> 5 2020-02-28                        345             64                409              412                       821                  233        46    21              888       15695
 #> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29             1128       18661
+#>   total_people_tested
+#> 1                  NA
+#> 2                  NA
+#> 3                  NA
+#> 4                  NA
+#> 5                  NA
+#> 6                  NA
 ```
 
 ### Plotting the active cases distribution
