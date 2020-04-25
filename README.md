@@ -36,8 +36,7 @@ Protection](http://www.protezionecivile.it/)
 ## Installation
 
 You can install the released version of covid19italy from
-[CRAN](https://cran.r-project.org/web/packages/covid19italy/index.html)
-with:
+[CRAN](https://cran.r-project.org/package=covid19italy) with:
 
 ``` r
 install.packages("covid19italy")
@@ -54,8 +53,8 @@ devtools::install_github("Covid19R/covid19Italy")
 ## Data refresh
 
 While the **covid19italy** [CRAN
-version](https://cloud.r-project.org/web/packages/covid19italy/index.html)
-is updated every month or two, the [Github (Dev)
+version](https://cran.r-project.org/package=covid19italy) is updated
+every month or two, the [Github (Dev)
 version](https://github.com/Covid19R/covid19italy) is updated on a daily
 bases. The `update_data` function enables to overcome this gap and keep
 the installed version with the most recent data available on the Github

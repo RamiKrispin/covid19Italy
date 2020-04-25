@@ -24,7 +24,7 @@ The data was pull from [Italy Department of Civil Protection](http://www.protezi
 
 ## Installation
 
-You can install the released version of covid19italy from [CRAN](https://cran.r-project.org/web/packages/covid19italy/index.html) with:
+You can install the released version of covid19italy from [CRAN](https://cran.r-project.org/package=covid19italy) with:
 
 ``` r
 install.packages("covid19italy")
