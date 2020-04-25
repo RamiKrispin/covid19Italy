@@ -43,7 +43,7 @@ install.packages("covid19italy")
 ```
 
 Or, install the most recent version from
-[GitHub](https://github.com/covid19italy/covid19italy) with:
+[GitHub](https://github.com/Covid19R/covid19italy) with:
 
 ``` r
 # install.packages("devtools")
