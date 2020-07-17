@@ -3,12 +3,6 @@ update_italy_total <- function(){
 `%>%` <- magrittr::`%>%`
 
 italy_total <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
-                        stringsAsFactors = FALSE)
-
-
-
-
-italy_total <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
                         stringsAsFactors = FALSE) %>%
   stats::setNames(c("date_temp", "state",
                     "hospitalized_with_symptoms","intensive_care",
