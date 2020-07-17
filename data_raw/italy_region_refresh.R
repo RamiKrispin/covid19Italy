@@ -11,11 +11,14 @@ italy_region <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/mas
                     "total_hospitalized", "home_confinement",
                     "cumulative_positive_cases", "daily_positive_cases",
                     "daily_cases", "recovered",
-                    "death", "cumulative_cases",
+                    "death",
+                    "positive_clinical_activity",
+                    "positive_surveys_tests",
+                    "cumulative_cases",
                     "total_tests", "total_people_tested",
-                    "notes_it", "notes_en")) %>%
+                    "notes")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-  dplyr::select(-date_temp, - state, -notes_it, -notes_en, -daily_cases) %>%
+  dplyr::select(-date_temp, - state, -notes, -daily_cases) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::mutate(region_spatial = region_name) %>%
   dplyr::arrange(date)
@@ -45,9 +48,9 @@ italy_region$region_spatial <- ifelse(italy_region$region_spatial == "P.A. Bolza
                                       italy_region$region_spatial)
 
 
-if(ncol(italy_region) != 17){
+if(ncol(italy_region) != 19){
   stop("The number of columns is invalid")
-} else if(nrow(italy_region)< 1130){
+} else if(nrow(italy_region) < 3000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_region$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
@@ -56,9 +59,9 @@ if(ncol(italy_region) != 17){
 italy_region_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_region.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
-if(ncol(italy_region_csv) != 17){
+if(ncol(italy_region_csv) != 19){
   stop("The number of columns is invalid")
-} else if(nrow(italy_region_csv)< 1130){
+} else if(nrow(italy_region_csv) < 3000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_region_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
