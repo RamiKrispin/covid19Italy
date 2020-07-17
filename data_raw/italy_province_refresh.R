@@ -5,9 +5,9 @@ update_italy_province <- function(){
 df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv", stringsAsFactors = FALSE) %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
-                    "notes_it", "notes_en")) %>%
+                    "notes")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-  dplyr::select(-date_temp, -state, - notes_it, -notes_en) %>%
+  dplyr::select(-date_temp, -state, - notes) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
@@ -47,7 +47,7 @@ italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Ba
 
 if(ncol(italy_province) != 11){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province)< 6900){
+} else if(nrow(italy_province) < 18000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
@@ -58,7 +58,7 @@ italy_province_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid
 
 if(ncol(italy_province_csv) != 11){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province_csv)< 6900){
+} else if(nrow(italy_province_csv)< 18000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
