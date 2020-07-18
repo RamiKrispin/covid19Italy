@@ -2,7 +2,9 @@
 update_italy_province <- function(){
 `%>%` <- magrittr::`%>%`
 
-df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv", stringsAsFactors = FALSE) %>%
+df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+                stringsAsFactors = FALSE,
+                encoding = "ASCII") %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
                     "notes")) %>%
@@ -58,7 +60,7 @@ italy_province_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid
 
 if(ncol(italy_province_csv) != 11){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province_csv)< 18000){
+} else if(nrow(italy_province_csv)< 10000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
