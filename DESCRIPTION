@@ -18,7 +18,7 @@ Suggests:
     testthat (>= 2.1.0),
     knitr (>= 1.28),
     rmarkdown (>= 2.1)
-URL: https://github.com/Covid19R/covid19italy
-BugReports: https://github.com/Covid19R/covid19italy/issues
+URL: https://github.com/RamiKrispin/covid19italy
+BugReports: https://github.com/RamiKrispin/covid19italy/issues
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
