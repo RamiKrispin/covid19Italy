@@ -1,14 +1,18 @@
 # installing package imports packages
 pkg_list <- c("dplyr",
-              "tibble",
+              "remotes",
               "devtools",
               "here",
               "lubridate",
               "magrittr",
-              "purrr",
               "rmarkdown",
               "tidyr",
               "testthat",
+              "pkgdown",
+              "shiny",
+              "plotly",
+              "ggplot",
+              "knitr",
               "usethis")
 
 install.packages(pkgs = pkg_list, repos = "https://cran.rstudio.com/")
