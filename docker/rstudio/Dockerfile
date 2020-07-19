@@ -1,4 +1,4 @@
-FROM rkrispin/coronavirus:dev
+FROM rkrispin/covid19italy:dev
 
 ARG RSTUDIO_VERSION
 #ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.1.463}
