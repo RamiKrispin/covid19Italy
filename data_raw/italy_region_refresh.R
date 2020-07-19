@@ -56,7 +56,7 @@ if(ncol(italy_region) != 19){
   stop("The starting date is invalid")
 }
 
-italy_region_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_region.csv", stringsAsFactors = FALSE) %>%
+italy_region_csv <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19italy/master/csv/italy_region.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
 if(ncol(italy_region_csv) != 19){
