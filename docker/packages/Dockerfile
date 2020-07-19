@@ -6,3 +6,5 @@ LABEL maintainer="Rami Krispin <rami.krispin@gmail.com>"
 RUN mkdir packages
 COPY install_packages.R packages/
 RUN Rscript packages/install_packages.R
+COPY install_geo_packages.R packages/
+RUN Rscript packages/install_geo_packages.R
