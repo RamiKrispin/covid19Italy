@@ -26,6 +26,10 @@
 #'
 #' - death - death cases
 #'
+#' - positive_clinical_activity - positive cases emerged from clinical activity
+#'
+#' - positive_surveys_tests - positive cases emerging from surveys and tests, planned at national or regional level
+#'
 #' - cumulative_cases - total positive cases, recovered, and death cases
 #'
 #' - total_tests - number of tests performed
@@ -77,6 +81,10 @@
 #' - recovered - recovered cases
 #'
 #' - death - death cases
+#'
+#' - positive_clinical_activity - positive cases emerged from clinical activity
+#'
+#' - positive_surveys_tests - positive cases emerging from surveys and tests, planned at national or regional level
 #'
 #' - cumulative_cases - total positive, recovered, and death cases
 #'

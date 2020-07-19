@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covid19italy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -102,7 +102,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/Covid19R/covid19italy">
+  <a href="https://github.com/RamiKrispin/covid19italy">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -120,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Regions Outbreak Dataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Covid19R/covid19italy/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/RamiKrispin/covid19italy/blob/master/R/data.R'><code>R/data.R</code></a></small>
     <div class="hidden name"><code>italy_region.Rd</code></div>
     </div>
 
@@ -153,6 +153,8 @@
 <p>- daily_positive_cases - news amount of current positive cases (Hospitalised patients + Home confinement)</p>
 <p>- recovered - recovered cases</p>
 <p>- death - death cases</p>
+<p>- positive_clinical_activity - positive cases emerged from clinical activity</p>
+<p>- positive_surveys_tests - positive cases emerging from surveys and tests, planned at national or regional level</p>
 <p>- cumulative_cases - total positive, recovered, and death cases</p>
 <p>- total_tests - number of tests performed</p>
 <p>- total_people_tested - total number of people tested</p>
@@ -162,34 +164,41 @@
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>italy_region</span>)
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>italy_region</span>)</div><div class='output co'>#&gt;         date region_code    region_name      lat     long
-#&gt; 1 2020-02-24          13        Abruzzo 42.35122 13.39844
-#&gt; 2 2020-02-24          17     Basilicata 40.63947 15.80515
-#&gt; 3 2020-02-24           4   P.A. Bolzano 46.49933 11.35662
-#&gt; 4 2020-02-24          18       Calabria 38.90598 16.59440
-#&gt; 5 2020-02-24          15       Campania 40.83957 14.25085
-#&gt; 6 2020-02-24           8 Emilia-Romagna 44.49437 11.34172
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>italy_region</span>)</div><div class='output co'>#&gt;         date region_code           region_name      lat     long
+#&gt; 1 2020-02-24          13               Abruzzo 42.35122 13.39844
+#&gt; 2 2020-02-24          17            Basilicata 40.63947 15.80515
+#&gt; 3 2020-02-24          18              Calabria 38.90598 16.59440
+#&gt; 4 2020-02-24          15              Campania 40.83957 14.25085
+#&gt; 5 2020-02-24           8        Emilia-Romagna 44.49437 11.34172
+#&gt; 6 2020-02-24           6 Friuli Venezia Giulia 45.64944 13.76814
 #&gt;   hospitalized_with_symptoms intensive_care total_hospitalized home_confinement
 #&gt; 1                          0              0                  0                0
 #&gt; 2                          0              0                  0                0
 #&gt; 3                          0              0                  0                0
 #&gt; 4                          0              0                  0                0
-#&gt; 5                          0              0                  0                0
-#&gt; 6                         10              2                 12                6
+#&gt; 5                         10              2                 12                6
+#&gt; 6                          0              0                  0                0
 #&gt;   cumulative_positive_cases daily_positive_cases recovered death
 #&gt; 1                         0                    0         0     0
 #&gt; 2                         0                    0         0     0
 #&gt; 3                         0                    0         0     0
 #&gt; 4                         0                    0         0     0
-#&gt; 5                         0                    0         0     0
-#&gt; 6                        18                    0         0     0
-#&gt;   cumulative_cases total_tests total_people_tested      region_spatial
-#&gt; 1                0           5                  NA             Abruzzo
-#&gt; 2                0           0                  NA          Basilicata
-#&gt; 3                0           1                  NA Trentino-Alto Adige
-#&gt; 4                0           1                  NA            Calabria
-#&gt; 5                0          10                  NA            Campania
-#&gt; 6               18         148                  NA      Emilia-Romagna</div><div class='input'>
+#&gt; 5                        18                    0         0     0
+#&gt; 6                         0                    0         0     0
+#&gt;   positive_clinical_activity positive_surveys_tests cumulative_cases
+#&gt; 1                         NA                     NA                0
+#&gt; 2                         NA                     NA                0
+#&gt; 3                         NA                     NA                0
+#&gt; 4                         NA                     NA                0
+#&gt; 5                         NA                     NA               18
+#&gt; 6                         NA                     NA                0
+#&gt;   total_tests total_people_tested        region_spatial
+#&gt; 1           5                  NA               Abruzzo
+#&gt; 2           0                  NA            Basilicata
+#&gt; 3           1                  NA              Calabria
+#&gt; 4          10                  NA              Campania
+#&gt; 5         148                  NA        Emilia-Romagna
+#&gt; 6          58                  NA Friuli-Venezia Giulia</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

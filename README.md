@@ -5,13 +5,13 @@
 
 <!-- badges: start -->
 
-[![build](https://github.com/covid19r/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/covid19r/covid19italy/actions?query=workflow%3Abuild)
+[![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/covid19italy)](https://cran.r-project.org/package=covid19italy)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub
-commit](https://img.shields.io/github/last-commit/covid19r/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
+commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
 <!-- badges: end -->
 
 The covid19italy R package provides a tidy format dataset of the 2019
@@ -74,20 +74,20 @@ update_data()
 data(italy_total)
 
 head(italy_total)
-#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases recovered death cumulative_cases total_tests
-#> 1 2020-02-24                        101             26                127               94                       221                    0         1     7              229        4324
-#> 2 2020-02-25                        114             35                150              162                       311                   90         1    10              322        8623
-#> 3 2020-02-26                        128             36                164              221                       385                   74         3    12              400        9587
-#> 4 2020-02-27                        248             56                304              284                       588                  203        45    17              650       12014
-#> 5 2020-02-28                        345             64                409              412                       821                  233        46    21              888       15695
-#> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29             1128       18661
-#>   total_people_tested
-#> 1                  NA
-#> 2                  NA
-#> 3                  NA
-#> 4                  NA
-#> 5                  NA
-#> 6                  NA
+#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases recovered death positive_clinical_activity
+#> 1 2020-02-24                        101             26                127               94                       221                    0         1     7                         NA
+#> 2 2020-02-25                        114             35                150              162                       311                   90         1    10                         NA
+#> 3 2020-02-26                        128             36                164              221                       385                   74         3    12                         NA
+#> 4 2020-02-27                        248             56                304              284                       588                  203        45    17                         NA
+#> 5 2020-02-28                        345             64                409              412                       821                  233        46    21                         NA
+#> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29                         NA
+#>   positive_surveys_tests cumulative_cases total_tests total_people_tested
+#> 1                     NA              229        4324                  NA
+#> 2                     NA              322        8623                  NA
+#> 3                     NA              400        9587                  NA
+#> 4                     NA              650       12014                  NA
+#> 5                     NA              888       15695                  NA
+#> 6                     NA             1128       18661                  NA
 ```
 
 ### Plotting the active cases distribution
@@ -110,7 +110,7 @@ plot_ly(data = italy_total,
                 name = 'Intensive Care', 
                 fillcolor = '#9E0003') %>%
   layout(title = "Italy - Distribution of Active Covid19 Cases",
-         legend = list(x = 0.1, y = 0.9),
+         legend = list(x = 0.8, y = 0.9),
          yaxis = list(title = "Number of Cases"),
          xaxis = list(title = "Source: Italy Department of Civil Protection"))
   

@@ -5,6 +5,8 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+library(covid19italy)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -15,11 +17,11 @@ knitr::opts_chunk$set(
 # covid19italy
 
 <!-- badges: start -->
-[![build](https://github.com/covid19r/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/covid19r/covid19italy/actions?query=workflow%3Abuild)
+[![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/covid19italy)](https://cran.r-project.org/package=covid19italy)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub commit](https://img.shields.io/github/last-commit/covid19r/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
+[![GitHub commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
 <!-- badges: end -->
 
 
@@ -97,13 +99,40 @@ plot_ly(data = italy_total,
                 name = 'Intensive Care', 
                 fillcolor = '#9E0003') %>%
   layout(title = "Italy - Distribution of Active Covid19 Cases",
-         legend = list(x = 0.1, y = 0.9),
+         legend = list(x = 0.8, y = 0.9),
          yaxis = list(title = "Number of Cases"),
          xaxis = list(title = "Source: Italy Department of Civil Protection"))
   
 
 
 ```
+
+```{r include=FALSE}
+library(plotly)
+
+p <- plot_ly(data = italy_total,
+        x = ~ date,
+        y = ~home_confinement, 
+        name = 'Home Confinement', 
+        fillcolor = '#FDBBBC',
+        type = 'scatter',
+        mode = 'none', 
+        stackgroup = 'one') %>%
+  add_trace( y = ~ hospitalized_with_symptoms, 
+             name = "Hospitalized with Symptoms",
+             fillcolor = '#E41317') %>%
+  add_trace(y = ~intensive_care, 
+                name = 'Intensive Care', 
+                fillcolor = '#9E0003') %>%
+  layout(title = "Italy - Distribution of Active Covid19 Cases",
+         legend = list(x = 0.8, y = 0.9),
+         yaxis = list(title = "Number of Cases"),
+         xaxis = list(title = "Source: Italy Department of Civil Protection"))
+
+
+orca(p, "man/figures/positive_dist.png")
+```
+
 
 <img src="man/figures/positive_dist.png" width="100%" />
 
@@ -130,6 +159,31 @@ plot_ly(data = italy_total,
 
 
 ```
+
+
+```{r include=FALSE}
+p <- plot_ly(data = italy_total,
+        x = ~ date,
+        y = ~ cumulative_positive_cases, 
+        name = 'Active', 
+        fillcolor = '#1f77b4',
+        type = 'scatter',
+        mode = 'none', 
+        stackgroup = 'one') %>%
+  add_trace( y = ~ death, 
+             name = "Death",
+             fillcolor = '#E41317') %>%
+  add_trace(y = ~recovered, 
+            name = 'Recovered', 
+            fillcolor = 'forestgreen') %>%
+  layout(title = "Italy - Distribution of Covid19 Cases",
+         legend = list(x = 0.1, y = 0.9),
+         yaxis = list(title = "Number of Cases"),
+         xaxis = list(title = "Source: Italy Department of Civil Protection"))
+
+orca(p, "man/figures/case_dist.png")
+```
+
 <img src="man/figures/case_dist.png" width="100%" />
 
 
@@ -175,6 +229,49 @@ italy_region %>%
 
 ```
 
+
+``` {r include=FALSE}
+library(dplyr)
+
+p <- italy_region %>% 
+  filter(date == max(date)) %>% 
+  select(region_name, cumulative_positive_cases, recovered, death, cumulative_cases) %>%
+  arrange(-cumulative_cases) %>%
+  mutate(region = factor(region_name, levels = region_name)) %>%
+  plot_ly(y = ~ region, 
+          x = ~ cumulative_positive_cases, 
+          orientation = 'h',
+          text =  ~ cumulative_positive_cases,
+          textposition = 'auto',
+          type = "bar", 
+          name = "Active",
+          marker = list(color = "#1f77b4")) %>%
+  add_trace(x = ~ recovered,
+            text =  ~ recovered,
+            textposition = 'auto',
+            name = "Recovered",
+            marker = list(color = "forestgreen")) %>%
+  add_trace(x = ~ death, 
+            text =  ~ death,
+            textposition = 'auto',
+            name = "Death",
+            marker = list(color = "red")) %>%
+  layout(title = "Cases Distribution by Region",
+         barmode = 'stack',
+         yaxis = list(title = "Region"),
+         xaxis = list(title = "Number of Cases"),
+         hovermode = "compare",
+         legend = list(x = 0.65, y = 0.9),
+         margin =  list(
+           l = 20,
+           r = 10,
+           b = 10,
+           t = 30,
+           pad = 2
+         )) 
+
+orca(p, "man/figures/region_bar_plot.png")
+```
 <img src="man/figures/region_bar_plot.png" width="100%" />
 
 ### Cases distribution by province for Lombardia region
@@ -189,6 +286,18 @@ italy_province %>%
   hide_legend()
 ```
 
+``` {r include=FALSE}
+library(dplyr)
+p <- italy_province %>% 
+  filter(date == max(date), region_name == "Lombardia") %>%
+  plot_ly(labels = ~province_name, values = ~total_cases, 
+                  textinfo="label+percent",
+                  type = 'pie') %>%
+  layout(title = "Lombardia - Cases Distribution by Province") %>% 
+  hide_legend()
+
+orca(p, "man/figures/province_pie.png")
+```
 
 <img src="man/figures/province_pie.png" width="100%" />
 

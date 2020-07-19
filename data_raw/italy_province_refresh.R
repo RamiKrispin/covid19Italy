@@ -2,12 +2,14 @@
 update_italy_province <- function(){
 `%>%` <- magrittr::`%>%`
 
-df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv", stringsAsFactors = FALSE) %>%
+df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+                stringsAsFactors = FALSE,
+                encoding = "ASCII") %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
-                    "notes_it", "notes_en")) %>%
+                    "notes")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-  dplyr::select(-date_temp, -state, - notes_it, -notes_en) %>%
+  dplyr::select(-date_temp, -state, - notes) %>%
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
@@ -31,7 +33,7 @@ italy_province <- df1 %>% dplyr::left_join(df2,
   dplyr::select(-total_cases_lag) %>%
   dplyr::mutate(new_cases = ifelse(is.na(new_cases), total_cases, new_cases)) %>%
   dplyr::mutate(province_spatial = province_name)
-
+italy_province$province_name <-  ifelse(italy_province$province_name == "Forlì-Cesena", "Forli-Cesena", italy_province$province_name)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Aosta", "Aoste", italy_province$province_spatial)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Bolzano", "Bozen", italy_province$province_spatial)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Crotone", "Crotene", italy_province$province_spatial)
@@ -42,23 +44,24 @@ italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Re
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Reggio nell'Emilia", "Reggio Emilia", italy_province$province_spatial)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Torino", "Turin", italy_province$province_spatial)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Barletta-Andria-Trani", "Barletta-Andria Trani", italy_province$province_spatial)
+italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Forlì-Cesena", "Forli-Cesena", italy_province$province_spatial)
 
 
 
 if(ncol(italy_province) != 11){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province)< 6900){
+} else if(nrow(italy_province) < 18000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
 }
 
-italy_province_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_province.csv", stringsAsFactors = FALSE) %>%
+italy_province_csv <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19italy/master/csv/italy_province.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
 if(ncol(italy_province_csv) != 11){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province_csv)< 6900){
+} else if(nrow(italy_province_csv)< 10000){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")

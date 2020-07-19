@@ -63,6 +63,8 @@ The `italy_total` dataset provides an overall summary of the cases in Italy sinc
 * `daily_cases` - daily new positive, recovered, and death cases
 * `recovered` - total number of recovered cases (cumulative)
 * `death` - total number of death cases (cumulative)
+* `positive_clinical_activity` - positive cases emerged from clinical activity
+* `positive_surveys_tests` - positive cases emerging from surveys and tests, planned at national or regional level
 * `cumulative_cases` - total number of positive cases (cumulative)
 * `total_tests` - total number of tests performed (cumulative)
 
@@ -97,6 +99,8 @@ The `italy_region` dataset provides an overall summary of the cases in Italy's r
 * `daily_cases` - daily new positive, recovered, and death cases
 * `recovered` - total number of recovered cases (cumulative)
 * `death` - total number of death cases (cumulative)
+* `positive_clinical_activity` - positive cases emerged from clinical activity
+* `positive_surveys_tests` - positive cases emerging from surveys and tests, planned at national or regional level
 * `cumulative_cases` - total number of positive cases, recovered, and death (cumulative)
 * `total_tests` - total number of tests performed (cumulative)
 * `region_spatial` - the spatial region names as in the output of the `ne_states` function from the **rnaturalearth** package  

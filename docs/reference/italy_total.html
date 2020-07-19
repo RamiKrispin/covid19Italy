@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covid19italy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -102,7 +102,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/Covid19R/covid19italy">
+  <a href="https://github.com/RamiKrispin/covid19italy">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -120,7 +120,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Italy Outbreak Dataset</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Covid19R/covid19italy/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/RamiKrispin/covid19italy/blob/master/R/data.R'><code>R/data.R</code></a></small>
     <div class="hidden name"><code>italy_total.Rd</code></div>
     </div>
 
@@ -149,6 +149,8 @@
 <p>- daily_positive_cases - new amount of current positive cases (Hospitalised patients + Home confinement)</p>
 <p>- recovered - recovered cases</p>
 <p>- death - death cases</p>
+<p>- positive_clinical_activity - positive cases emerged from clinical activity</p>
+<p>- positive_surveys_tests - positive cases emerging from surveys and tests, planned at national or regional level</p>
 <p>- cumulative_cases - total positive cases, recovered, and death cases</p>
 <p>- total_tests - number of tests performed</p>
 <p>- total_people_tested - total number of people tested</p>
@@ -171,13 +173,20 @@
 #&gt; 4              284                       588                  203        45
 #&gt; 5              412                       821                  233        46
 #&gt; 6              543                      1049                  228        50
-#&gt;   death cumulative_cases total_tests total_people_tested
-#&gt; 1     7              229        4324                  NA
-#&gt; 2    10              322        8623                  NA
-#&gt; 3    12              400        9587                  NA
-#&gt; 4    17              650       12014                  NA
-#&gt; 5    21              888       15695                  NA
-#&gt; 6    29             1128       18661                  NA</div><div class='input'>
+#&gt;   death positive_clinical_activity positive_surveys_tests cumulative_cases
+#&gt; 1     7                         NA                     NA              229
+#&gt; 2    10                         NA                     NA              322
+#&gt; 3    12                         NA                     NA              400
+#&gt; 4    17                         NA                     NA              650
+#&gt; 5    21                         NA                     NA              888
+#&gt; 6    29                         NA                     NA             1128
+#&gt;   total_tests total_people_tested
+#&gt; 1        4324                  NA
+#&gt; 2        8623                  NA
+#&gt; 3        9587                  NA
+#&gt; 4       12014                  NA
+#&gt; 5       15695                  NA
+#&gt; 6       18661                  NA</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
