@@ -28,7 +28,7 @@ if(ncol(italy_total) != 14){
   stop("The starting date is invalid")
 }
 
-italy_total_csv <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19italy/master/csv/italy_total.csv", stringsAsFactors = FALSE) %>%
+italy_total_csv <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv", stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
 if(ncol(italy_total_csv) != 14){
