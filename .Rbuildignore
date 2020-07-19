@@ -8,3 +8,4 @@
 ^.github$
 ^CRAN-RELEASE$
 ^vignettes/geospatial_visualization.Rmd$
+^docker$
