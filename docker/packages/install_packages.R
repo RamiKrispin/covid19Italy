@@ -11,7 +11,7 @@ pkg_list <- c("dplyr",
               "pkgdown",
               "shiny",
               "plotly",
-              "ggplot",
+              "ggplot2",
               "knitr",
               "usethis")
 
