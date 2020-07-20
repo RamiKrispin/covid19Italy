@@ -37,7 +37,7 @@ jobs:
               git push
           fi
       - name: Refresh Italy province dataset
-        run: Rscript ./data_raw/italy_province_refresh.R
+        run: Rscript -e "source('data_raw/italy_province_refresh.R')"
       - name: Push Italy province
         if: success()
         run: |
