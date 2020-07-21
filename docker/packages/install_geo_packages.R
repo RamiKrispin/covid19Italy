@@ -1,5 +1,5 @@
 # installing package imports packages
-pkg_list <- c("rnaturalearth", "mapview", "sf")
+pkg_list <- c("mapview", "sf", "leafpop", "rgeos", "rnaturalearth")
 
 install.packages(pkgs = pkg_list, repos = "https://cran.rstudio.com/")
 
