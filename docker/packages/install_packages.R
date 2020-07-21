@@ -12,6 +12,7 @@ pkg_list <- c("dplyr",
               "shiny",
               "plotly",
               "ggplot2",
+              "flexdashboard",
               "knitr",
               "usethis")
 
