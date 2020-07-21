@@ -1,8 +1,8 @@
 name: Data Refresh Dev
 
-on:
-  schedule:
-    - cron:  '0 */4 * * *'
+on: [push]
+  #schedule:
+  #  - cron:  '0 */4 * * *'
 jobs:
   data_refresh_dev:
     name: covid19Italy dataset refresh
@@ -14,6 +14,8 @@ jobs:
         uses: actions/checkout@v2
         with: 
           ref: 'dev'
+      - name: Test bash code
+        run: bash ./data_raw/data_refresh.bs
       - name: Refresh Italy total dataset
         run: Rscript ./data_raw/italy_total_refresh.R
       - name: Push Italy total
