@@ -9,6 +9,7 @@
   - Added `positive_clinical_activity` - positive cases emerged from clinical activity
   - Added `positive_surveys_tests` - positive cases emerging from surveys and tests, planned at national or regional level
 
+* Updated the data refresh automation - set [docker image](https://hub.docker.com/r/rkrispin/covid19italy) to support the cron job on [Github Actions](https://github.com/RamiKrispin/covid19Italy/blob/master/.github/workflows/data_refresh_docker.yml)
 
 
 ## Version 0.2.0
