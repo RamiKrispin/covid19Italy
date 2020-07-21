@@ -1,6 +1,6 @@
 name: Data Refresh Dev
 
-on: [push]
+on: [push] 
   #schedule:
   #  - cron:  '0 */4 * * *'
 jobs:
