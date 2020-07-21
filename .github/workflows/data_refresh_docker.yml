@@ -14,38 +14,5 @@ jobs:
         uses: actions/checkout@v2
         with: 
           ref: 'dev'
-      - name: Test bash code
+      - name: Refresh the data
         run: bash ./data_raw/data_refresh.bs "dev"
-      - name: Refresh Italy total dataset
-        run: Rscript ./data_raw/italy_total_refresh.R
-      - name: Push Italy total
-        if: success()
-        run: |
-          if [[ "$(git status --porcelain)" != "" ]]; then
-              git config --global user.name 'RamiKrispin'
-              git config --global user.email 'ramkrisp@umich.edu'
-              git commit -am "Update italy total data"
-              git push
-          fi
-      - name: Refresh Italy region dataset
-        run: Rscript ./data_raw/italy_region_refresh.R
-      - name: Push Italy region
-        if: success()
-        run: |
-          if [[ "$(git status --porcelain)" != "" ]]; then
-              git config --global user.name 'RamiKrispin'
-              git config --global user.email 'ramkrisp@umich.edu'
-              git commit -am "Update italy region data"
-              git push
-          fi
-      - name: Refresh Italy province dataset
-        run: Rscript -e "source('data_raw/italy_province_refresh.R')"
-      - name: Push Italy province
-        if: success()
-        run: |
-          if [[ "$(git status --porcelain)" != "" ]]; then
-              git config --global user.name 'RamiKrispin'
-              git config --global user.email 'ramkrisp@umich.edu'
-              git commit -am "Update italy province data"
-              git push
-          fi
