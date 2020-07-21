@@ -1,7 +1,12 @@
 # Pulling raw data
-update_italy_total <- function(){
-`%>%` <- magrittr::`%>%`
+update_italy_total <- function(branch = "master"){
 
+  `%>%` <- magrittr::`%>%`
+print(branch)
+
+if(branch != "master" && branch != "dev"){
+  stop("The branch argument is missing")
+}
 italy_total <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
                         stringsAsFactors = FALSE) %>%
   stats::setNames(c("date_temp", "state",
@@ -28,7 +33,7 @@ if(ncol(italy_total) != 14){
   stop("The starting date is invalid")
 }
 
-italy_total_csv <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv", stringsAsFactors = FALSE) %>%
+italy_total_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/%s/csv/italy_total.csv", branch) , stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
 if(ncol(italy_total_csv) != 14){
@@ -52,8 +57,3 @@ if(nrow(italy_total) > nrow(italy_total_csv)){
 return(print("Done..."))
 
 }
-
-
-update_italy_total()
-
-

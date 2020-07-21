@@ -1,5 +1,5 @@
 # Pulling raw data
-update_italy_province <- function(){
+update_italy_province <- function(branch = "master"){
 `%>%` <- magrittr::`%>%`
 
 df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
@@ -56,7 +56,7 @@ if(ncol(italy_province) != 11){
   stop("The starting date is invalid")
 }
 
-italy_province_csv <- read.csv("https://raw.githubusercontent.com/RamiKrispin/covid19italy/master/csv/italy_province.csv", stringsAsFactors = FALSE) %>%
+italy_province_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19italy/%s/csv/italy_province.csv", branch), stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
 if(ncol(italy_province_csv) != 11){
@@ -80,8 +80,3 @@ if(nrow(italy_province) > nrow(italy_province_csv)){
 return(print("Done..."))
 
 }
-
-
-update_italy_province()
-
-
