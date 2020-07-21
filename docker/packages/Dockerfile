@@ -9,4 +9,4 @@ RUN Rscript packages/install_packages.R
 COPY install_geo_packages.R packages/
 RUN Rscript packages/install_geo_packages.R
 
-RUN bash --version
+RUN sudo apt-get update && sudo apt-get install pandoc
