@@ -3,12 +3,12 @@
 echo $1
 Rscript -e "source('./data_raw/italy_total_refresh.R'); update_italy_total(branch = '$1')"
 
-# if [[ "$(git status --porcelain)" != "" ]]; then
-#    git config --global user.name 'RamiKrispin'
-#    git config --global user.email 'ramkrisp@umich.edu'
-#    git add csv/italy_total.csv
-#    git add data/italy_total.rda
-#    git commit -m "Update italy total data"
-#    git push
-#fi
+if [[ "$(git status --porcelain)" != "" ]]; then
+    git config --global user.name 'RamiKrispin'
+    git config --global user.email 'ramkrisp@umich.edu'
+    git add csv/italy_total.csv
+    git add data/italy_total.rda
+    git commit -m "Update italy total data"
+    git push
+fi
 
