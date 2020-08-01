@@ -53,12 +53,12 @@ Or, install the most recent version from [GitHub](https://github.com/Covid19R/co
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Covid19R/covid19Italy")
+devtools::install_github("RamiKrispin/covid19Italy")
 ```
 
 ## Data refresh
 
-While the **covid19italy** [CRAN version](https://cran.r-project.org/package=covid19italy) is updated every month or two, the [Github (Dev) version](https://github.com/Covid19R/covid19italy) is updated on a daily bases. The `update_data` function enables to overcome this gap and keep the installed version with the most recent data available on the Github version:
+While the **covid19italy** [CRAN version](https://cran.r-project.org/package=covid19italy) is updated every month or two, the [Github (Dev) version](https://github.com/RamiKrispin/covid19italy) is updated on a daily bases. The `update_data` function enables to overcome this gap and keep the installed version with the most recent data available on the Github version:
 
 ``` r
 library(covid19italy)

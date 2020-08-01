@@ -49,7 +49,7 @@ Or, install the most recent version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Covid19R/covid19Italy")
+devtools::install_github("RamiKrispin/covid19Italy")
 ```
 
 ## Data refresh
@@ -57,10 +57,10 @@ devtools::install_github("Covid19R/covid19Italy")
 While the **covid19italy** [CRAN
 version](https://cran.r-project.org/package=covid19italy) is updated
 every month or two, the [Github (Dev)
-version](https://github.com/Covid19R/covid19italy) is updated on a daily
-bases. The `update_data` function enables to overcome this gap and keep
-the installed version with the most recent data available on the Github
-version:
+version](https://github.com/RamiKrispin/covid19italy) is updated on a
+daily bases. The `update_data` function enables to overcome this gap and
+keep the installed version with the most recent data available on the
+Github version:
 
 ``` r
 library(covid19italy)
@@ -76,20 +76,34 @@ update_data()
 data(italy_total)
 
 head(italy_total)
-#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases recovered death positive_clinical_activity
-#> 1 2020-02-24                        101             26                127               94                       221                    0         1     7                         NA
-#> 2 2020-02-25                        114             35                150              162                       311                   90         1    10                         NA
-#> 3 2020-02-26                        128             36                164              221                       385                   74         3    12                         NA
-#> 4 2020-02-27                        248             56                304              284                       588                  203        45    17                         NA
-#> 5 2020-02-28                        345             64                409              412                       821                  233        46    21                         NA
-#> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29                         NA
-#>   positive_surveys_tests cumulative_cases total_tests total_people_tested
-#> 1                     NA              229        4324                  NA
-#> 2                     NA              322        8623                  NA
-#> 3                     NA              400        9587                  NA
-#> 4                     NA              650       12014                  NA
-#> 5                     NA              888       15695                  NA
-#> 6                     NA             1128       18661                  NA
+#>         date hospitalized_with_symptoms intensive_care total_hospitalized
+#> 1 2020-02-24                        101             26                127
+#> 2 2020-02-25                        114             35                150
+#> 3 2020-02-26                        128             36                164
+#> 4 2020-02-27                        248             56                304
+#> 5 2020-02-28                        345             64                409
+#> 6 2020-02-29                        401            105                506
+#>   home_confinement cumulative_positive_cases daily_positive_cases recovered
+#> 1               94                       221                    0         1
+#> 2              162                       311                   90         1
+#> 3              221                       385                   74         3
+#> 4              284                       588                  203        45
+#> 5              412                       821                  233        46
+#> 6              543                      1049                  228        50
+#>   death positive_clinical_activity positive_surveys_tests cumulative_cases
+#> 1     7                         NA                     NA              229
+#> 2    10                         NA                     NA              322
+#> 3    12                         NA                     NA              400
+#> 4    17                         NA                     NA              650
+#> 5    21                         NA                     NA              888
+#> 6    29                         NA                     NA             1128
+#>   total_tests total_people_tested
+#> 1        4324                  NA
+#> 2        8623                  NA
+#> 3        9587                  NA
+#> 4       12014                  NA
+#> 5       15695                  NA
+#> 6       18661                  NA
 ```
 
 ### Plotting the active cases distribution
