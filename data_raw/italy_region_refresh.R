@@ -7,8 +7,7 @@ update_italy_region <- function(branch = "master"){
 
   `%>%` <- magrittr::`%>%`
 
-  italy_region <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
-                           stringsAsFactors = FALSE) %>%
+  italy_region <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv") %>%
     stats::setNames(c("date_temp", "state",
                       "region_code", "region_name",
                       "lat", "long",
@@ -21,12 +20,25 @@ update_italy_region <- function(branch = "master"){
                       "positive_surveys_tests",
                       "cumulative_cases",
                       "total_tests", "total_people_tested",
-                      "notes")) %>%
-    dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
-    dplyr::select(-date_temp, - state, -notes, -daily_cases) %>%
+                      "notes",
+                      "new_intensive_care",
+                      "test_notes", "case_notes",
+                      "total_positive_tests",
+                      "total_fast_tests",
+                      "daily_positive_tests",
+                      "daily_fast_tests",
+                      "nuts_code_1", "nuts_code_2")) %>%
+    dplyr::mutate(date = lubridate::ymd(substr(as.character(date_temp), 1, 10))) %>%
+    dplyr::select(-date_temp, - state, -notes, -daily_cases,
+                  -new_intensive_care, -test_notes,
+                  -case_notes, - total_positive_tests,
+                  -total_fast_tests, - daily_positive_tests,
+                  -daily_fast_tests,
+                  -nuts_code_1, -nuts_code_2) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::mutate(region_spatial = region_name) %>%
-    dplyr::arrange(date)
+    dplyr::arrange(date) %>%
+    as.data.frame()
 
   italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Emilia Romagna",
                                         "Emilia-Romagna",
@@ -55,7 +67,7 @@ update_italy_region <- function(branch = "master"){
 
   if(ncol(italy_region) != 19){
     stop("The number of columns is invalid")
-  } else if(nrow(italy_region) < 3000){
+  } else if(nrow(italy_region) < 8000){
     stop("The number of raws does not match the minimum number of rows")
   } else if(min(italy_region$date) != as.Date("2020-02-24")){
     stop("The starting date is invalid")
@@ -66,7 +78,7 @@ update_italy_region <- function(branch = "master"){
 
   if(ncol(italy_region_csv) != 19){
     stop("The number of columns is invalid")
-  } else if(nrow(italy_region_csv) < 3000){
+  } else if(nrow(italy_region_csv) < 8000){
     stop("The number of raws does not match the minimum number of rows")
   } else if(min(italy_region_csv$date) != as.Date("2020-02-24")){
     stop("The starting date is invalid")
