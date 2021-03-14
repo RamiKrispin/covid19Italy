@@ -2,12 +2,10 @@
 update_italy_province <- function(branch = "master"){
 `%>%` <- magrittr::`%>%`
 
-df1 <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
-                stringsAsFactors = FALSE,
-                encoding = "ASCII") %>%
+df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv")  %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
-                    "notes")) %>%
+                    "notes", "nuts_code_1", "nuts_code_2", "nuts_code_3")) %>%
   dplyr::mutate(date = lubridate::ymd(substr(date_temp, 1, 10))) %>%
   dplyr::select(-date_temp, -state, - notes) %>%
   dplyr::select(date, dplyr::everything()) %>%
@@ -18,7 +16,7 @@ head(df1)
 
 df2 <- df1 %>% dplyr::mutate(date = date + lubridate::days(1)) %>%
   dplyr::mutate(total_cases_lag = total_cases) %>%
-  dplyr::select(-total_cases)
+  dplyr::select(-total_cases, -nuts_code_1, -nuts_code_2, -nuts_code_3)
 
 head(df1)
 head(df2)
@@ -48,9 +46,9 @@ italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Fo
 
 
 
-if(ncol(italy_province) != 11){
+if(ncol(italy_province) != 14){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province) < 18000){
+} else if(nrow(italy_province) < 54800){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
@@ -59,9 +57,9 @@ if(ncol(italy_province) != 11){
 italy_province_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19italy/%s/csv/italy_province.csv", branch), stringsAsFactors = FALSE) %>%
   dplyr::mutate(date = as.Date(date))
 
-if(ncol(italy_province_csv) != 11){
+if(ncol(italy_province_csv) != 14){
   stop("The number of columns is invalid")
-} else if(nrow(italy_province_csv)< 10000){
+} else if(nrow(italy_province_csv)< 54800){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_province_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
