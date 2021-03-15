@@ -1,7 +1,6 @@
 FROM rkrispin/covid19italy:dev
 
-ARG RSTUDIO_VERSION
-#ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.1.463}
+ARG RSTUDIO_VERSION=latest
 ARG S6_VERSION
 ARG PANDOC_TEMPLATES_VERSION
 ENV S6_VERSION=${S6_VERSION:-v1.21.7.0}
@@ -95,7 +94,7 @@ COPY pam-helper.sh /usr/lib/rstudio-server/bin/pam-helper
 
 EXPOSE 8787
 
-## automatically link a shared volume for kitematic users
-VOLUME /home/rstudio/kitematic
+## Set the volume
+VOLUME /home/rstudio
 
 CMD ["/init"]
