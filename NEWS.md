@@ -1,3 +1,8 @@
+## Version 0.3.0.9000
+
+* Fixed error on the data pipeline
+* Added new fields for the **italy_province** dataset 
+
 ## Version 0.3.0
 * Updates for the **italy_total** dataset:
 
