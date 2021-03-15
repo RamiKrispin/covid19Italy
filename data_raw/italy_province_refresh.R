@@ -2,7 +2,7 @@
 update_italy_province <- function(branch = "master"){
 `%>%` <- magrittr::`%>%`
 
-df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv")  %>%
+df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv") %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
                     "notes", "nuts_code_1", "nuts_code_2", "nuts_code_3")) %>%

@@ -16,15 +16,16 @@ update_data <- function(){
   region_current <- covid19italy::italy_region
   province_current <- covid19italy::italy_province
 
-  total_git <- readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv") %>%
-    as.data.frame()
+  total_git <- as.data.frame(readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_total.csv",
+                                             locale = readr::locale(encoding = "ASCII")))
 
-  region_git <- readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_region.csv") %>%
-    as.data.frame()
 
-  province_git <- readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_province.csv") %>%
-    as.data.frame()
+  region_git <- as.data.frame(readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_region.csv",
+                              locale = readr::locale(encoding = "ASCII")))
 
+
+  province_git <- as.data.frame(readr::read_csv("https://raw.githubusercontent.com/RamiKrispin/covid19Italy/master/csv/italy_province.csv",
+                                locale = readr::locale(encoding = "ASCII")))
 
   if(!base::identical(dim(total_git), dim(total_current))){
     if(base::nrow(total_git) > base::nrow(total_current)){
