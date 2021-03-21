@@ -21,25 +21,31 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - date - date of notification (Date class)
 
-- region_code - region code
-
 - region_name - region names
 
-- province_code - province code
+- region_code - region code
 
 - province_name - province names
 
+- province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package
+
 - province_abb - the province abbreviation
+
+- province_code - province code
 
 - lat - latitude point
 
 - long - Longitude point
 
-- total_cases - total number of positive cases (cumulative)
-
 - new_cases - daily number of positive cases
 
-- province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package
+- total_cases - total number of positive cases (cumulative)
+
+- nuts_code_1 - groups of region -  level 1 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available \href{https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy}{here}
+
+- nuts_code_2 - regions, level 2 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available \href{https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy}{here}
+
+- nuts_code_3 - provinces, level 3 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available \href{https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy}{here}
 }
 \examples{
 
