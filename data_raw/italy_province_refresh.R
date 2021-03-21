@@ -2,7 +2,12 @@
 update_italy_province <- function(branch = "master"){
 `%>%` <- magrittr::`%>%`
 
-df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv") %>%
+df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv",
+                       col_types = cols(note = col_character(),
+                                        codice_nuts_1 = col_character(),
+                                        codice_nuts_2 = col_character(),
+                                        codice_nuts_3 = col_character()),
+                       na = "empty") %>%
   stats::setNames(c("date_temp", "state", "region_code", "region_name", "province_code",
                     "province_name", "province_abb", "lat", "long", "total_cases",
                     "notes", "nuts_code_1", "nuts_code_2", "nuts_code_3")) %>%
@@ -11,7 +16,9 @@ df1 <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/maste
   dplyr::select(date, dplyr::everything()) %>%
   dplyr::arrange(date)
 
+
 head(df1)
+
 
 
 df2 <- df1 %>% dplyr::mutate(date = date + lubridate::days(1)) %>%
@@ -31,6 +38,7 @@ italy_province <- df1 %>% dplyr::left_join(df2,
   dplyr::select(-total_cases_lag) %>%
   dplyr::mutate(new_cases = ifelse(is.na(new_cases), total_cases, new_cases)) %>%
   dplyr::mutate(province_spatial = province_name)
+
 italy_province$province_name <-  ifelse(italy_province$province_name == "Forlì-Cesena", "Forli-Cesena", italy_province$province_name)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Aosta", "Aoste", italy_province$province_spatial)
 italy_province$province_spatial <- ifelse(italy_province$province_spatial == "Bolzano", "Bozen", italy_province$province_spatial)
@@ -54,8 +62,11 @@ if(ncol(italy_province) != 14){
   stop("The starting date is invalid")
 }
 
-italy_province_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19italy/%s/csv/italy_province.csv", branch), stringsAsFactors = FALSE) %>%
-  dplyr::mutate(date = as.Date(date))
+italy_province_csv <- readr::read_csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19italy/%s/csv/italy_province.csv", branch),
+                                      col_types = cols(nuts_code_1 = col_character(),
+                                                       nuts_code_2 = col_character(),
+                                                       nuts_code_3 = col_character()),
+                                      na = "empty")
 
 if(ncol(italy_province_csv) != 14){
   stop("The number of columns is invalid")
