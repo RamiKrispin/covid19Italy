@@ -7,7 +7,19 @@ update_italy_region <- function(branch = "master"){
 
   `%>%` <- magrittr::`%>%`
 
-  italy_region <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv") %>%
+  italy_region <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
+                                  col_types = cols(casi_da_sospetto_diagnostico = col_character(),
+                                                   casi_da_screening = col_character(),
+                                                   casi_testati = col_character(), note = col_character(),
+                                                   ingressi_terapia_intensiva = col_character(),
+                                                   note_test = col_character(), note_casi = col_character(),
+                                                   totale_positivi_test_molecolare = col_character(),
+                                                   totale_positivi_test_antigenico_rapido = col_character(),
+                                                   tamponi_test_molecolare = col_character(),
+                                                   tamponi_test_antigenico_rapido = col_character(),
+                                                   codice_nuts_1 = col_character(),
+                                                   codice_nuts_2 = col_character()),
+                                  na = "empty") %>%
     stats::setNames(c("date_temp", "state",
                       "region_code", "region_name",
                       "lat", "long",
@@ -30,16 +42,20 @@ update_italy_region <- function(branch = "master"){
                       "nuts_code_1", "nuts_code_2")) %>%
     dplyr::mutate(date = lubridate::ymd(substr(as.character(date_temp), 1, 10))) %>%
     dplyr::select(-date_temp, - state, -notes, -daily_cases,
-                  -new_intensive_care, -test_notes,
-                  -case_notes, - total_positive_tests,
-                  -total_fast_tests, - daily_positive_tests,
-                  -daily_fast_tests,
-                  -nuts_code_1, -nuts_code_2) %>%
+                  # -new_intensive_care,
+                  -test_notes,
+                  -case_notes#,
+                  # - total_positive_tests,
+                  # -total_fast_tests, - daily_positive_tests,
+                  # -daily_fast_tests,
+                  # -nuts_code_1, -nuts_code_2
+                  ) %>%
     dplyr::select(date, dplyr::everything()) %>%
     dplyr::mutate(region_spatial = region_name) %>%
     dplyr::arrange(date) %>%
     as.data.frame()
 
+  # Encoding(italy_region$region_name) <- "ASCII"
   italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Emilia Romagna",
                                         "Emilia-Romagna",
                                         italy_region$region_spatial)
