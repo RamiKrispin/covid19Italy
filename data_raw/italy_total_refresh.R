@@ -33,7 +33,7 @@ italy_total <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-
 
 if(ncol(italy_total) != 19){
   stop("The number of columns is invalid")
-} else if(nrow(italy_total) < 380){
+} else if(nrow(italy_total) < 490){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_total$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
@@ -44,7 +44,7 @@ italy_total_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrisp
 
 if(ncol(italy_total_csv) != 19){
   stop("The number of columns is invalid")
-} else if(nrow(italy_total_csv) < 380){
+} else if(nrow(italy_total_csv) < 490){
   stop("The number of raws does not match the minimum number of rows")
 } else if(min(italy_total_csv$date) != as.Date("2020-02-24")){
   stop("The starting date is invalid")
