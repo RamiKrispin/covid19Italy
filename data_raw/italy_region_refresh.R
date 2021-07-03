@@ -8,17 +8,17 @@ update_italy_region <- function(branch = "master"){
   `%>%` <- magrittr::`%>%`
 
   italy_region <- readr::read_csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv",
-                                  col_types = cols(casi_da_sospetto_diagnostico = col_character(),
-                                                   casi_da_screening = col_character(),
-                                                   casi_testati = col_character(), note = col_character(),
-                                                   ingressi_terapia_intensiva = col_character(),
-                                                   note_test = col_character(), note_casi = col_character(),
-                                                   totale_positivi_test_molecolare = col_character(),
-                                                   totale_positivi_test_antigenico_rapido = col_character(),
-                                                   tamponi_test_molecolare = col_character(),
-                                                   tamponi_test_antigenico_rapido = col_character(),
-                                                   codice_nuts_1 = col_character(),
-                                                   codice_nuts_2 = col_character()),
+                                  col_types = readr::cols(casi_da_sospetto_diagnostico = readr::col_character(),
+                                                   casi_da_screening = readr::col_character(),
+                                                   casi_testati = readr::col_character(), note = readr::col_character(),
+                                                   ingressi_terapia_intensiva = readr::col_character(),
+                                                   note_test = readr::col_character(), note_casi = readr::col_character(),
+                                                   totale_positivi_test_molecolare = readr::col_character(),
+                                                   totale_positivi_test_antigenico_rapido = readr::col_character(),
+                                                   tamponi_test_molecolare = readr::col_character(),
+                                                   tamponi_test_antigenico_rapido = readr::col_character(),
+                                                   codice_nuts_1 = readr::col_character(),
+                                                   codice_nuts_2 = readr::col_character()),
                                   na = "empty") %>%
     stats::setNames(c("date_temp", "state",
                       "region_code", "region_name",
@@ -54,6 +54,8 @@ update_italy_region <- function(branch = "master"){
     dplyr::mutate(region_spatial = region_name) %>%
     dplyr::arrange(date) %>%
     as.data.frame()
+
+  head(italy_region)
 
   # Encoding(italy_region$region_name) <- "ASCII"
   italy_region$region_spatial <- ifelse(italy_region$region_spatial == "Emilia Romagna",
