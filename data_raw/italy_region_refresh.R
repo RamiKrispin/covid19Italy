@@ -83,7 +83,7 @@ update_italy_region <- function(branch = "master"){
                                         italy_region$region_spatial)
 
 
-  if(ncol(italy_region) != 19){
+  if(ncol(italy_region) != 26){
     stop("The number of columns is invalid")
   } else if(nrow(italy_region) < 8000){
     stop("The number of raws does not match the minimum number of rows")
