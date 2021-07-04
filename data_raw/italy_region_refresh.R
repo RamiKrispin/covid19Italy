@@ -94,7 +94,7 @@ update_italy_region <- function(branch = "master"){
   italy_region_csv <- read.csv(sprintf("https://raw.githubusercontent.com/RamiKrispin/covid19italy/%s/csv/italy_region.csv", branch), stringsAsFactors = FALSE) %>%
     dplyr::mutate(date = as.Date(date))
 
-  if(ncol(italy_region_csv) != 19){
+  if(ncol(italy_region_csv) != 26){
     stop("The number of columns is invalid")
   } else if(nrow(italy_region_csv) < 8000){
     stop("The number of raws does not match the minimum number of rows")
