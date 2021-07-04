@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covid19italy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     <p>daily summary of the Coronavirus (COVID-19) pandemic cases in Italy's provinces</p>
     </div>
 
-    <pre class="usage"><span class='no'>italy_province</span></pre>
+    <pre class="usage"><span class='kw'>italy_province</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -151,43 +151,38 @@
 
     <p>The dataset contains the daily summary of the Coronavirus pandemic cases in Italy's regions. The data includes the following fields:</p>
 <p>- date - date of notification (Date class)</p>
-<p>- region_code - region code</p>
 <p>- region_name - region names</p>
-<p>- province_code - province code</p>
+<p>- region_code - region code</p>
 <p>- province_name - province names</p>
+<p>- province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package</p>
 <p>- province_abb - the province abbreviation</p>
+<p>- province_code - province code</p>
 <p>- lat - latitude point</p>
 <p>- long - Longitude point</p>
-<p>- total_cases - total number of positive cases (cumulative)</p>
 <p>- new_cases - daily number of positive cases</p>
-<p>- province_spatial - the spatial province names as in the output of the `ne_states` function from the **rnaturalearth** package</p>
+<p>- total_cases - total number of positive cases (cumulative)</p>
+<p>- nuts_code_1 - groups of region -  level 1 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available <a href='https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy'>here</a></p>
+<p>- nuts_code_2 - regions, level 2 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available <a href='https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy'>here</a></p>
+<p>- nuts_code_3 - provinces, level 3 of Italy statistical regions (Nomenclature of Territorial Units for Statistics), more details available <a href='https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy'>here</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>italy_province</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>italy_province</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>italy_province</span>)</div><div class='output co'>#&gt;         date region_code region_name province_code
-#&gt; 1 2020-02-24          13     Abruzzo            66
-#&gt; 2 2020-02-24          13     Abruzzo            67
-#&gt; 3 2020-02-24          13     Abruzzo            68
-#&gt; 4 2020-02-24          13     Abruzzo            69
-#&gt; 5 2020-02-24          13     Abruzzo           979
-#&gt; 6 2020-02-24          17  Basilicata            76
-#&gt;                          province_name province_abb      lat     long
-#&gt; 1                             L'Aquila           AQ 42.35122 13.39844
-#&gt; 2                               Teramo           TE 42.65892 13.70440
-#&gt; 3                              Pescara           PE 42.46458 14.21365
-#&gt; 4                               Chieti           CH 42.35103 14.16755
-#&gt; 5 In fase di definizione/aggiornamento                    NA       NA
-#&gt; 6                              Potenza           PZ 40.63947 15.80515
-#&gt;   total_cases new_cases                     province_spatial
-#&gt; 1           0         0                             L'Aquila
-#&gt; 2           0         0                               Teramo
-#&gt; 3           0         0                              Pescara
-#&gt; 4           0         0                               Chieti
-#&gt; 5           0         0 In fase di definizione/aggiornamento
-#&gt; 6           0         0                              Potenza</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>italy_province</span>)
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 14</span><span>
+#&gt;   date       region_name region_code province_name province_spatial province_abb
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-02-24 Abruzzo     13          L'Aquila      L'Aquila         </span><span style='color: #555555;'>"</span><span>AQ</span><span style='color: #555555;'>"</span><span>        
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-02-24 Abruzzo     13          Teramo        Teramo           </span><span style='color: #555555;'>"</span><span>TE</span><span style='color: #555555;'>"</span><span>        
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-02-24 Abruzzo     13          Pescara       Pescara          </span><span style='color: #555555;'>"</span><span>PE</span><span style='color: #555555;'>"</span><span>        
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-02-24 Abruzzo     13          Chieti        Chieti           </span><span style='color: #555555;'>"</span><span>CH</span><span style='color: #555555;'>"</span><span>        
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-02-24 Abruzzo     13          In fase di d… In fase di defi… </span><span style='color: #555555;'>""</span><span>          
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-02-24 Basilicata  17          Potenza       Potenza          </span><span style='color: #555555;'>"</span><span>PZ</span><span style='color: #555555;'>"</span><span>        
+#&gt; </span><span style='color: #555555;'># … with 8 more variables: province_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, lat </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, long </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   new_cases </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, total_cases </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, nuts_code_1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, nuts_code_2 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   nuts_code_3 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -203,7 +198,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

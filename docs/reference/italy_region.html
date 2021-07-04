@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covid19italy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     <p>daily summary of the Coronavirus (COVID-19) pandemic cases in Italy's regions</p>
     </div>
 
-    <pre class="usage"><span class='no'>italy_region</span></pre>
+    <pre class="usage"><span class='kw'>italy_region</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -172,15 +172,16 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>italy_region</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>italy_region</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>italy_region</span>)</div><div class='output co'>#&gt;         date region_code           region_name      lat     long
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>italy_region</span>)
+</div><div class='output co'>#&gt;         date region_code           region_name      lat     long
 #&gt; 1 2020-02-24          13               Abruzzo 42.35122 13.39844
 #&gt; 2 2020-02-24          17            Basilicata 40.63947 15.80515
 #&gt; 3 2020-02-24          18              Calabria 38.90598 16.59440
 #&gt; 4 2020-02-24          15              Campania 40.83957 14.25085
-#&gt; 5 2020-02-24           8        Emilia-Romagna 44.49437 11.34172
-#&gt; 6 2020-02-24           6 Friuli Venezia Giulia 45.64944 13.76814
+#&gt; 5 2020-02-24          08        Emilia-Romagna 44.49437 11.34172
+#&gt; 6 2020-02-24          06 Friuli Venezia Giulia 45.64944 13.76814
 #&gt;   hospitalized_with_symptoms intensive_care total_hospitalized home_confinement
 #&gt; 1                          0              0                  0                0
 #&gt; 2                          0              0                  0                0
@@ -196,19 +197,33 @@
 #&gt; 5                        18                    0         0     0
 #&gt; 6                         0                    0         0     0
 #&gt;   positive_clinical_activity positive_surveys_tests cumulative_cases
-#&gt; 1                         NA                     NA                0
-#&gt; 2                         NA                     NA                0
-#&gt; 3                         NA                     NA                0
-#&gt; 4                         NA                     NA                0
-#&gt; 5                         NA                     NA               18
-#&gt; 6                         NA                     NA                0
-#&gt;   total_tests total_people_tested        region_spatial
-#&gt; 1           5                  NA               Abruzzo
-#&gt; 2           0                  NA            Basilicata
-#&gt; 3           1                  NA              Calabria
-#&gt; 4          10                  NA              Campania
-#&gt; 5         148                  NA        Emilia-Romagna
-#&gt; 6          58                  NA Friuli-Venezia Giulia</div><div class='input'>
+#&gt; 1                                                                  0
+#&gt; 2                                                                  0
+#&gt; 3                                                                  0
+#&gt; 4                                                                  0
+#&gt; 5                                                                 18
+#&gt; 6                                                                  0
+#&gt;   total_tests total_people_tested new_intensive_care total_positive_tests
+#&gt; 1           5                                                            
+#&gt; 2           0                                                            
+#&gt; 3           1                                                            
+#&gt; 4          10                                                            
+#&gt; 5         148                                                            
+#&gt; 6          58                                                            
+#&gt;   total_fast_tests daily_positive_tests daily_fast_tests nuts_code_1
+#&gt; 1                                                                   
+#&gt; 2                                                                   
+#&gt; 3                                                                   
+#&gt; 4                                                                   
+#&gt; 5                                                                   
+#&gt; 6                                                                   
+#&gt;   nuts_code_2        region_spatial
+#&gt; 1                           Abruzzo
+#&gt; 2                        Basilicata
+#&gt; 3                          Calabria
+#&gt; 4                          Campania
+#&gt; 5                    Emilia-Romagna
+#&gt; 6             Friuli-Venezia Giulia</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -225,7 +240,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covid19italy</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     <p>daily summary of the Coronavirus (COVID-19) pandemic cases in Italy</p>
     </div>
 
-    <pre class="usage"><span class='no'>italy_total</span></pre>
+    <pre class="usage"><span class='kw'>italy_total</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -167,37 +167,26 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>italy_total</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>italy_total</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>italy_total</span>)</div><div class='output co'>#&gt;         date hospitalized_with_symptoms intensive_care total_hospitalized
-#&gt; 1 2020-02-24                        101             26                127
-#&gt; 2 2020-02-25                        114             35                150
-#&gt; 3 2020-02-26                        128             36                164
-#&gt; 4 2020-02-27                        248             56                304
-#&gt; 5 2020-02-28                        345             64                409
-#&gt; 6 2020-02-29                        401            105                506
-#&gt;   home_confinement cumulative_positive_cases daily_positive_cases recovered
-#&gt; 1               94                       221                    0         1
-#&gt; 2              162                       311                   90         1
-#&gt; 3              221                       385                   74         3
-#&gt; 4              284                       588                  203        45
-#&gt; 5              412                       821                  233        46
-#&gt; 6              543                      1049                  228        50
-#&gt;   death positive_clinical_activity positive_surveys_tests cumulative_cases
-#&gt; 1     7                         NA                     NA              229
-#&gt; 2    10                         NA                     NA              322
-#&gt; 3    12                         NA                     NA              400
-#&gt; 4    17                         NA                     NA              650
-#&gt; 5    21                         NA                     NA              888
-#&gt; 6    29                         NA                     NA             1128
-#&gt;   total_tests total_people_tested
-#&gt; 1        4324                  NA
-#&gt; 2        8623                  NA
-#&gt; 3        9587                  NA
-#&gt; 4       12014                  NA
-#&gt; 5       15695                  NA
-#&gt; 6       18661                  NA</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>italy_total</span>)
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 19</span><span>
+#&gt;   date       hospitalized_wi… intensive_care total_hospitali… home_confinement
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>                </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 2020-02-24              101             26              127               94
+#&gt; </span><span style='color: #555555;'>2</span><span> 2020-02-25              114             35              150              162
+#&gt; </span><span style='color: #555555;'>3</span><span> 2020-02-26              128             36              164              221
+#&gt; </span><span style='color: #555555;'>4</span><span> 2020-02-27              248             56              304              284
+#&gt; </span><span style='color: #555555;'>5</span><span> 2020-02-28              345             64              409              412
+#&gt; </span><span style='color: #555555;'>6</span><span> 2020-02-29              401            105              506              543
+#&gt; </span><span style='color: #555555;'># … with 14 more variables: cumulative_positive_cases </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   daily_positive_cases </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, recovered </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, death </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   positive_clinical_activity </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, positive_surveys_tests </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   cumulative_cases </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, total_tests </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, total_people_tested </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   new_intensive_care </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, total_positive_molecular_test </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   total_positive_rapid_antigen_test </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, molecular_test </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   rapid_antigen_test </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -213,7 +202,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
