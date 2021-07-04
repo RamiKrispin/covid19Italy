@@ -13,16 +13,16 @@ MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/
 [![GitHub
 commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master)
 ![Data
-refresh](https://github.com/RamiKrispin/covid19Italy/workflows/Data%20Refresh/badge.svg)
+refresh](https://github.com/RamiKrispin/covid19Italy/workflows/Data%20Refresh/badge.png)
 <!-- badges: end -->
 
 The covid19italy R package provides a tidy format dataset of the 2019
 Novel Coronavirus COVID-19 (2019-nCoV) pandemic outbreak in Italy. The
 package includes the following three datasets:
 
-  - `italy_total` - daily summary of the outbreak on the national level
-  - `italy_region` - daily summary of the outbreak on the region level
-  - `italy_province` - daily summary of the outbreak on the province
+-   `italy_total` - daily summary of the outbreak on the national level
+-   `italy_region` - daily summary of the outbreak on the region level
+-   `italy_province` - daily summary of the outbreak on the province
     level
 
 More information about the package datasets available
@@ -76,34 +76,20 @@ update_data()
 data(italy_total)
 
 head(italy_total)
-#>         date hospitalized_with_symptoms intensive_care total_hospitalized
-#> 1 2020-02-24                        101             26                127
-#> 2 2020-02-25                        114             35                150
-#> 3 2020-02-26                        128             36                164
-#> 4 2020-02-27                        248             56                304
-#> 5 2020-02-28                        345             64                409
-#> 6 2020-02-29                        401            105                506
-#>   home_confinement cumulative_positive_cases daily_positive_cases recovered
-#> 1               94                       221                    0         1
-#> 2              162                       311                   90         1
-#> 3              221                       385                   74         3
-#> 4              284                       588                  203        45
-#> 5              412                       821                  233        46
-#> 6              543                      1049                  228        50
-#>   death positive_clinical_activity positive_surveys_tests cumulative_cases
-#> 1     7                         NA                     NA              229
-#> 2    10                         NA                     NA              322
-#> 3    12                         NA                     NA              400
-#> 4    17                         NA                     NA              650
-#> 5    21                         NA                     NA              888
-#> 6    29                         NA                     NA             1128
-#>   total_tests total_people_tested
-#> 1        4324                  NA
-#> 2        8623                  NA
-#> 3        9587                  NA
-#> 4       12014                  NA
-#> 5       15695                  NA
-#> 6       18661                  NA
+#>         date hospitalized_with_symptoms intensive_care total_hospitalized home_confinement cumulative_positive_cases daily_positive_cases recovered death positive_clinical_activity
+#> 1 2020-02-24                        101             26                127               94                       221                    0         1     7                         NA
+#> 2 2020-02-25                        114             35                150              162                       311                   90         1    10                         NA
+#> 3 2020-02-26                        128             36                164              221                       385                   74         3    12                         NA
+#> 4 2020-02-27                        248             56                304              284                       588                  203        45    17                         NA
+#> 5 2020-02-28                        345             64                409              412                       821                  233        46    21                         NA
+#> 6 2020-02-29                        401            105                506              543                      1049                  228        50    29                         NA
+#>   positive_surveys_tests cumulative_cases total_tests total_people_tested new_intensive_care total_positive_molecular_test total_positive_rapid_antigen_test molecular_test rapid_antigen_test
+#> 1                     NA              229        4324                  NA                 NA                            NA                                NA             NA                 NA
+#> 2                     NA              322        8623                  NA                 NA                            NA                                NA             NA                 NA
+#> 3                     NA              400        9587                  NA                 NA                            NA                                NA             NA                 NA
+#> 4                     NA              650       12014                  NA                 NA                            NA                                NA             NA                 NA
+#> 5                     NA              888       15695                  NA                 NA                            NA                                NA             NA                 NA
+#> 6                     NA             1128       18661                  NA                 NA                            NA                                NA             NA                 NA
 ```
 
 ### Plotting the active cases distribution
@@ -133,7 +119,7 @@ plot_ly(data = italy_total,
 
 ```
 
-<img src="man/figures/positive_dist.png" width="100%" />
+<img src="man/figures/positive_dist.svg" width="100%" />
 
 ### Plotting the daily cases distribution
 
@@ -159,7 +145,7 @@ plot_ly(data = italy_total,
 
 ```
 
-<img src="man/figures/case_dist.png" width="100%" />
+<img src="man/figures/case_dist.svg" width="100%" />
 
 ### Cases distribution by region
 
@@ -202,7 +188,7 @@ italy_region %>%
          )) 
 ```
 
-<img src="man/figures/region_bar_plot.png" width="100%" />
+<img src="man/figures/region_bar_plot.svg" width="100%" />
 
 ### Cases distribution by province for Lombardia region
 
@@ -216,7 +202,7 @@ italy_province %>%
   hide_legend()
 ```
 
-<img src="man/figures/province_pie.png" width="100%" />
+<img src="man/figures/province_pie.svg" width="100%" />
 
 ## Supporting Dashboard
 

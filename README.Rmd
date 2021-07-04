@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub commit](https://img.shields.io/github/last-commit/RamiKrispin/covid19italy)](https://github.com/covid19r/covid19Italy/commit/master) 
-![Data refresh](https://github.com/RamiKrispin/covid19Italy/workflows/Data%20Refresh/badge.svg)
+![Data refresh](https://github.com/RamiKrispin/covid19Italy/workflows/Data%20Refresh/badge.png)
 <!-- badges: end -->
 
 
@@ -131,11 +131,11 @@ p <- plot_ly(data = italy_total,
          xaxis = list(title = "Source: Italy Department of Civil Protection"))
 
 
-orca(p, "man/figures/positive_dist.png")
+orca(p, "man/figures/positive_dist.svg")
 ```
 
 
-<img src="man/figures/positive_dist.png" width="100%" />
+<img src="man/figures/positive_dist.svg" width="100%" />
 
 ### Plotting the daily cases distribution 
 ```r
@@ -182,10 +182,10 @@ p <- plot_ly(data = italy_total,
          yaxis = list(title = "Number of Cases"),
          xaxis = list(title = "Source: Italy Department of Civil Protection"))
 
-orca(p, "man/figures/case_dist.png")
+orca(p, "man/figures/case_dist.svg")
 ```
 
-<img src="man/figures/case_dist.png" width="100%" />
+<img src="man/figures/case_dist.svg" width="100%" />
 
 
 ### Cases distribution by region
@@ -271,9 +271,9 @@ p <- italy_region %>%
            pad = 2
          )) 
 
-orca(p, "man/figures/region_bar_plot.png")
+orca(p, "man/figures/region_bar_plot.svg")
 ```
-<img src="man/figures/region_bar_plot.png" width="100%" />
+<img src="man/figures/region_bar_plot.svg" width="100%" />
 
 ### Cases distribution by province for Lombardia region
 
@@ -297,10 +297,10 @@ p <- italy_province %>%
   layout(title = "Lombardia - Cases Distribution by Province") %>% 
   hide_legend()
 
-orca(p, "man/figures/province_pie.png")
+orca(p, "man/figures/province_pie.svg")
 ```
 
-<img src="man/figures/province_pie.png" width="100%" />
+<img src="man/figures/province_pie.svg" width="100%" />
 
 ## Supporting Dashboard
 
