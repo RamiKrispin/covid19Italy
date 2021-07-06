@@ -65,9 +65,9 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - daily_fast_tests - daily fasts tests
 
-- nuts_code_1 - NUTS statistical regions of Italy more details available [here](https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy)
+- nuts_code_1 - NUTS statistical regions of Italy more details available more details available \href{https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy}{here}
 
-- nuts_code_2 - NUTS statistical regions of Italy more details available [here](https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy)
+- nuts_code_2 - NUTS statistical regions of Italy more details available \href{https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_Italy}{here}
 
 - region_spatial - the spatial region names as in the output of the `ne_states` function from the **rnaturalearth** package
 }
