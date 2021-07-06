@@ -12,11 +12,11 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
-)
+) 
 ```
 # covid19italy
 
-<!-- badges: start -->
+<!-- badges: start --> 
 [![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/covid19italy)](https://cran.r-project.org/package=covid19italy)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -32,7 +32,7 @@ The covid19italy R package provides a tidy format dataset of the 2019 Novel Coro
 - `italy_region` - daily summary of the outbreak on the region level
 - `italy_province` - daily summary of the outbreak on the province level 
 
-More information about the package datasets available [here](https://covid19r.github.io/covid19italy/articles/intro.html), and supporting dashboard available [here](https://ramikrispin.github.io/italy_dash/).
+More information about the package datasets available [here](https://covid19r.github.io/covid19italy/articles/intro.html), and supporting dashboard available [here](https://ramikrispin.github.io/italy_dash/)
 
 Data source: [Italy Department of Civil Protection](http://www.protezionecivile.it/)
 
