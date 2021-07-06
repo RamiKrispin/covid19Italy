@@ -25,7 +25,7 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 
 - intensive_care - intensive Care
 
-- total_hospitalized - total hospitalised patients
+- total_hospitalized - total hospitalized patients
 
 - home_confinement - home confinement
 
@@ -46,6 +46,16 @@ The dataset contains the daily summary of the Coronavirus pandemic cases in Ital
 - total_tests - number of tests performed
 
 - total_people_tested - total number of people tested
+
+- new_intensive_care - daily admissions to intensive care
+
+- total_positive_molecular_test - total positive cases tested by molecular tests
+
+- total_positive_rapid_antigen_test - Total positive rapid antigen tests
+
+- molecular_test - total molecular tests
+
+- rapid_antigen_test - total rapid antigen tests
 }
 \examples{
 
