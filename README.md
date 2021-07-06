@@ -28,7 +28,7 @@ package includes the following three datasets:
 More information about the package datasets available
 [here](https://covid19r.github.io/covid19italy/articles/intro.html), and
 supporting dashboard available
-[here](https://ramikrispin.github.io/italy_dash/)
+[here](https://ramikrispin.github.io/italy_dash/).
 
 Data source: [Italy Department of Civil
 Protection](http://www.protezionecivile.it/)
