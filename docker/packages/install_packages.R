@@ -1,5 +1,8 @@
 # installing package imports packages
-pkg_list <- c("dplyr",
+pkg_list <- c("textshaping",
+              "ragg",
+              "pkgdown",
+              "dplyr",
               "remotes",
               "devtools",
               "here",
@@ -8,7 +11,6 @@ pkg_list <- c("dplyr",
               "rmarkdown",
               "tidyr",
               "testthat",
-              "pkgdown",
               "shiny",
               "plotly",
               "ggplot2",
@@ -16,7 +18,8 @@ pkg_list <- c("dplyr",
               "flexdashboard",
               "readr",
               "knitr",
-              "usethis")
+              "usethis"
+              )
 
 install.packages(pkgs = pkg_list, repos = "https://cran.rstudio.com/")
 
