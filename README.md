@@ -7,7 +7,7 @@
 
 [![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/covid19italy)](https://cran.r-project.org/package=covid19italy)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub
@@ -31,7 +31,7 @@ supporting dashboard available
 [here](https://ramikrispin.github.io/italy_dash/).
 
 Data source: [Italy Department of Civil
-Protection](http://www.protezionecivile.it/)
+Protection](https://www.protezionecivile.it/)
 
 [<img src="man/figures/Italy_province.png" width="100%" />](https://covid19r.github.io/covid19italy/articles/geospatial_visualization.html)
 
