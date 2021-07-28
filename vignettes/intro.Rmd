@@ -20,7 +20,7 @@ The covid19italy R package provides a tidy format dataset of the 2019 Novel Coro
 - `italy_region` - daily summary of the outbreak on the region level
 - `italy_province` - daily summary of the outbreak on the province level
 
-The data was pull from [Italy Department of Civil Protection](http://www.protezionecivile.it/)
+The data was pull from [Italy Department of Civil Protection](https://www.protezionecivile.it/)
 
 ## Installation
 
