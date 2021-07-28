@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 ) 
 ```
-# covid19italy
+# covid19italy 
 
 <!-- badges: start --> 
 [![build](https://github.com/RamiKrispin/covid19italy/workflows/build/badge.svg?branch=master)](https://github.com/RamiKrispin/covid19italy/actions?query=workflow%3Abuild)

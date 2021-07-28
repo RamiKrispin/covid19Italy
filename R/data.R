@@ -4,7 +4,7 @@
 #'
 #'
 #' @format A data.frame object
-#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{http://www.protezionecivile.it/}{website}
+#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{https://www.protezionecivile.it/}{website}
 #' @keywords datasets coronavirus COVID19 Italy
 #' @details The dataset contains the daily summary of the Coronavirus pandemic cases in Italy. The data includes the following fields:
 #'
@@ -62,7 +62,7 @@
 #'
 #'
 #' @format A data.frame object
-#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{http://www.protezionecivile.it/}{website}
+#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{https://www.protezionecivile.it/}{website}
 #' @keywords datasets coronavirus COVID19 Italy
 #' @details The dataset contains the daily summary of the Coronavirus pandemic cases in Italy's regions. The data includes the following fields:
 #'
@@ -134,7 +134,7 @@
 #'
 #'
 #' @format A data.frame object
-#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{http://www.protezionecivile.it/}{website}
+#' @source Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{https://www.protezionecivile.it/}{website}
 #' @keywords datasets coronavirus COVID19 Italy
 #' @details The dataset contains the daily summary of the Coronavirus pandemic cases in Italy's regions. The data includes the following fields:
 #'

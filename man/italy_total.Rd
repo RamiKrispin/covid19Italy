@@ -8,7 +8,7 @@
 A data.frame object
 }
 \source{
-Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{http://www.protezionecivile.it/}{website}
+Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile \href{https://www.protezionecivile.it/}{website}
 }
 \usage{
 italy_total
